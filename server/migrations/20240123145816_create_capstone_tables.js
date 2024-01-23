@@ -49,24 +49,6 @@ exports.up = function (knex) {
       table.string("pdf_link").notNullable();
       table.string("itinerary_description").notNullable();
     })
-    .createTable("image", (table) => {
-      table.increments("id").primary();
-      table.string("image_link").notNullable();
-      table
-        .integer("user_id")
-        .unsigned()
-        .references("user.id")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
-      table
-        .integer("site_id")
-        .unsigned()
-        .references("site.id")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
-
-      table.timestamp("created_at").defaultTo(knex.fn.now());
-    })
     .createTable("post", (table) => {
       table.increments("id").primary();
       table.string("description").notNullable();
@@ -78,6 +60,19 @@ exports.up = function (knex) {
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
       table.timestamp("created_at").defaultTo(knex.fn.now());
+    })
+    .createTable("image", (table) => {
+      table.increments("id").primary();
+      table.string("image_link").notNullable();
+      table
+        .integer("user_id")
+        .unsigned()
+        .references("user.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+      table.integer("site_id").unsigned().references("site.id");
+      table.integer("post_id").unsigned().references("post.id");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
     });
 };
 
@@ -87,10 +82,10 @@ exports.up = function (knex) {
  */
 exports.down = function (knex) {
   return knex.schema
-    .dropTable("post")
     .dropTable("image")
+    .dropTable("post")
     .dropTable("itinerary")
+    .dropTable("user")
     .dropTable("site")
-    .dropTable("destination")
-    .dropTable("user");
+    .dropTable("destination");
 };
