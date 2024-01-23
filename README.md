@@ -53,7 +53,11 @@ any stress.
 
 MapBox - Map interaction with pictures
 OpenAi - Generating Itinerary
-Firebase - Upload image and return image url (maybe)
+
+<!-- Firebase - Upload image and return image url (maybe) -->
+
+A npm package that will resize images to smaller files for server api storage
+and resizing picture for display.
 EXIF - npm package to return EXIF Metadata
 
 ### Sitemap
