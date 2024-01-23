@@ -34,12 +34,20 @@ any stress.
 ### Tech Stack
 
 - React
-- React Router
-- Node - Express
-- Knex
-- MapBox
-- Database - SQL
-- react-icons
+- MySQL
+- Express
+- Client libraries:
+  - react
+  - react-router
+  - axios
+  - mapbox
+  - react-icons
+  - react-infinite-scroll
+  - NextUI
+- Server libraries:
+  - knex
+  - express
+  - bcrypt for password hashing (for auth)
 
 ### APIs
 
