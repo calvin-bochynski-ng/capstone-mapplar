@@ -8,16 +8,18 @@ exports.up = function (knex) {
       table.increments("id").primary();
       table.string("city").notNullable();
       table.string("country").notNullable();
-      table.string("geolocation").notNullable();
+      table.string("longitude").notNullable();
+      table.string("latitude").notNullable();
       table.string("description").notNullable();
     })
     .createTable("site", (table) => {
       table.increments("id").primary();
       table.string("site_name").notNullable();
       table.string("site_description").notNullable();
-      table.string("site_geolocation").notNullable();
+      table.string("longitude").notNullable();
+      table.string("latitude").notNullable();
       table
-        .integer("description_id")
+        .integer("destination_id")
         .unsigned()
         .references("destination.id")
         .onUpdate("CASCADE")
