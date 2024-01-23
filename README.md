@@ -91,7 +91,8 @@ light: (
 - secondary: #bddaa4,
 - accent: #f08c00,
   ),
-  ![](./mock-up-and-ideas/Light%20Mode.png
+
+![](./mock-up-and-ideas/Light%20Mode.png)
 
 ![](./mock-up-and-ideas/mobile-mock-up.png)
 ![](./mock-up-and-ideas/tablet-mock-up.png)
