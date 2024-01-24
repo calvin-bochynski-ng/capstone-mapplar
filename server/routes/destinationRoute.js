@@ -2,8 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const knex = require("knex")(require("../knexfile"));
+const authorize = require("../utils/authorize");
 
-router.get("/", async (_req, res) => {
+router.get("/", authorize, async (_req, res) => {
   try {
     const destination = await knex("destination");
     res.status(200).json(destination);
@@ -13,7 +14,7 @@ router.get("/", async (_req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", authorize, async (req, res) => {
   const { id } = req.params;
   try {
     const sites = await knex("site").where({ destination_id: id });
