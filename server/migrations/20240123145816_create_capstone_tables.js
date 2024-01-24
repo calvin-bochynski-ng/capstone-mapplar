@@ -33,6 +33,7 @@ exports.up = function (knex) {
       table.string("phone_number").notNullable();
       table.string("email").notNullable();
       table.string("password").notNullable();
+      table.string("role").notNullable();
       table.string("avatar").notNullable();
     })
     .createTable("itinerary", (table) => {
