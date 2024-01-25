@@ -51,7 +51,7 @@ exports.up = function (knex) {
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
       table.string("pdf_link").notNullable();
-      table.string("itinerary_description").notNullable();
+      table.text("itinerary_description").notNullable();
     })
     .createTable("post", (table) => {
       table.increments("id").primary();

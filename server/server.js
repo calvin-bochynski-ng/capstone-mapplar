@@ -2,12 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-// const knex = require("knex")(require("./knexfile"));
+const knex = require("knex")(require("./knexfile"));
 // const bcrypt = require("bcrypt");
 
-const destinationRoute = require("./routes/destinationRoute");
+const authorize = require("./utils/authorize");
+
 const signupRoute = require("./routes/signupRoute");
 const loginRoute = require("./routes/loginRoute");
+const destinationRoute = require("./routes/destinationRoute");
+const itineraryRoute = require("./routes/itineraryRoute");
 const PORT = process.env.PORT || 8080;
 const SERVER_API_URL = process.env.API_URL;
 
@@ -16,7 +19,8 @@ app.use(cors());
 
 app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
-app.use("/destination", destinationRoute);
+app.use("/destination", authorize, destinationRoute);
+app.use("/itinerary", authorize, itineraryRoute);
 
 app.listen(
   PORT,
