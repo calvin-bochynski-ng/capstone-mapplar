@@ -167,7 +167,7 @@ functioning auth platform.
 
 - ability to create different users like normal users, premium users and admins.
 
-- send intinerary to user's email by generating PDF, either sending or
+- send itinerary to user's email by generating PDF, either sending or
   downloading pdf.
 
 - forget password functionality
