@@ -18,6 +18,18 @@ const format = {
   },
 };
 
+router.get("/", async (req, res) => {
+  try {
+    const itineraries = await knex("itinerary").where({
+      user_id: req.body.id,
+    });
+    res.json(itineraries);
+  } catch (error) {
+    res.status(400).send(`Error retrieving itinerary: ${error}`);
+    console.error(error);
+  }
+});
+
 router.post("/", async (req, res) => {
   const prompt = {
     model: "gpt-3.5-turbo",

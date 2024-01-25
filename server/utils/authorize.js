@@ -9,7 +9,6 @@ const authorize = async (req, res, next) => {
   try {
     const decoded = jwt.verify(authToken, process.env.JWT_SECRET);
     req.body = { ...req.body, id: decoded.id };
-    console.log(req.body);
   } catch (error) {
     return res.status(401).send("Invalid auth token");
   }
