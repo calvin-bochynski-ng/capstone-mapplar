@@ -1,0 +1,18 @@
+@use "./variables" as *;
+
+@mixin text-style($text-size, $line-height) {
+  font-size: $text-size;
+  line-height: $line-height;
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
