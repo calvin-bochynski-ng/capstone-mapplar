@@ -1,0 +1,17 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  @include desktop {
+    width: 1120px;
+    margin: auto;
+  }
+  &__logo {
+    width: 9rem;
+    z-index: 100;
+  }
+}
