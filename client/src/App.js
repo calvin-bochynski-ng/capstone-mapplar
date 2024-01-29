@@ -16,6 +16,10 @@ function App() {
 
   const [isToken, setIsToken] = useState(false);
 
+  if (token) {
+    setIsToken(true);
+  }
+
   return (
     <BrowserRouter>
       <Header isToken={isToken} />

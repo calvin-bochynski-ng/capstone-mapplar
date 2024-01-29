@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Header = ({ isToken }) => {
   return (
     <header className="header">
-      <Link to="/" className="header__logo">
+      <Link to={!isToken ? "/" : "/social"} className="header__logo">
         <img src={mainLogo} alt="" className="header__logo" />
       </Link>
       <NavBar isToken={isToken} />
