@@ -3,6 +3,8 @@ const express = require("express");
 const router = express.Router();
 const knex = require("knex")(require("../knexfile"));
 const axios = require("axios");
+const PORT = process.env.PORT || 8080;
+const API_URL = process.env.API_URL;
 
 const format = {
   intinerary: {
@@ -73,7 +75,7 @@ router.post("/", async (req, res) => {
   const newItinerary = {
     user_id: req.body.id,
     destination_id: selectedDestination.id,
-    pdf_link: `${SERVER_API_URL}:${PORT}/public/itinerary`,
+    pdf_link: `${API_URL}:${PORT}/public/itinerary`,
     itinerary_description: openAiContent,
   };
 

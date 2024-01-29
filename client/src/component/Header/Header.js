@@ -1,14 +1,11 @@
 import "./Header.scss";
+import mainLogo from "../../assets/images/logo-text-main.svg";
+import NavBar from "../NavBar/NavBar";
 const Header = () => {
   return (
     <header>
-      <h1>This is the header</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
-        totam cumque consequuntur, repudiandae quaerat praesentium obcaecati eum
-        sequi, est necessitatibus commodi non deleniti. Magni, ducimus impedit.
-        At porro quo inventore.
-      </p>
+      <img src={mainLogo} alt="" />
+      <NavBar />
     </header>
   );
 };
