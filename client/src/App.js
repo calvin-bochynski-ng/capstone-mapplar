@@ -16,27 +16,41 @@ function App() {
 
   const [isToken, setIsToken] = useState(false);
 
-  if (token) {
-    setIsToken(true);
+  if (!token) {
+    return (
+      <BrowserRouter>
+        <Header isToken={isToken} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage setIsToken={setIsToken} />}
+          />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    );
   }
 
   return (
     <BrowserRouter>
-      <Header isToken={isToken} />
+      <Header isToken={isToken} setIsToken={setIsToken} />
       <Routes>
-        {!token ? (
-          <>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
-          </>
-        ) : (
-          <>
-            <Route path="/social" element={<SocialPage />} />
-            <Route path="/planning" element={<PlanningPage />} />
-            <Route path="/itinerary" element={<ItineraryPage />} />
-          </>
-        )}
+        <Route path="/" element={<SocialPage setIsToken={setIsToken} />} />
+        <Route
+          path="/social"
+          element={<SocialPage setIsToken={setIsToken} />}
+        />
+        <Route
+          path="/planning"
+          element={<PlanningPage setIsToken={setIsToken} />}
+        />
+        <Route
+          path="/itinerary"
+          element={<ItineraryPage setIsToken={setIsToken} />}
+        />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

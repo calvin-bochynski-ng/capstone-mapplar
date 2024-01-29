@@ -2,13 +2,21 @@ import { useState } from "react";
 import "./NavBar.scss";
 import { HiBars3 } from "react-icons/hi2";
 import { LiaTimesSolid } from "react-icons/lia";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const NavBar = ({ isToken }) => {
+const NavBar = ({ isToken, setIsToken }) => {
+  const navigate = useNavigate();
   const [isMenuClick, setIsMenuClick] = useState(false);
 
   const handleIsClick = () => {
     setIsMenuClick(!isMenuClick);
+  };
+
+  const handleSignOut = () => {
+    handleIsClick();
+    sessionStorage.removeItem("token");
+    setIsToken(false);
+    navigate("/");
   };
 
   return (
@@ -53,6 +61,9 @@ const NavBar = ({ isToken }) => {
               <Link to="/itinerary" onClick={handleIsClick}>
                 Profile
               </Link>
+            </li>
+            <li className="nav__item" onClick={handleSignOut}>
+              Sign Out
             </li>
           </>
         )}
