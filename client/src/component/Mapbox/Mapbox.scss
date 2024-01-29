@@ -1,0 +1,24 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.mapbox {
+  width: 100vw;
+  height: 95svh;
+  position: relative;
+  z-index: 0;
+
+  &__flyto {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: $primary-background-color;
+    border-radius: 5px;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
