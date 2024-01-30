@@ -9,7 +9,8 @@ const PopupComponent = ({ popupInfo, setPopupInfo }) => {
         latitude={Number(popupInfo.latitude)}
         onClose={() => setPopupInfo(null)}
       >
-        <div className="pop-up">{popupInfo.site_name}</div>
+        <h2 className="popup__title">{popupInfo.site_name}</h2>
+        <p className="popup__description">{popupInfo.site_description}</p>
       </Popup>
     )
   );

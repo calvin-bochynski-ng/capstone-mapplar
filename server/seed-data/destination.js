@@ -21,8 +21,8 @@ module.exports = [
     id: 3,
     city: "Hong Kong",
     country: "China",
-    longitude: 114.1095,
-    latitude: 22.3964,
+    longitude: 114.1722,
+    latitude: 22.2988,
     description:
       "Hong Kong is a vibrant city known for its stunning skyline, bustling street markets, and a blend of Eastern and Western cultures. It is a Special Administrative Region of China.",
   },
