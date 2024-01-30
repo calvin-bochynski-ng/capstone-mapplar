@@ -11,13 +11,14 @@ import { useEffect, useState, useRef } from "react";
 import Pin from "../Pin/Pin";
 import PopupComponent from "../PopupComponent/PopupComponent";
 import axios from "axios";
-import FlyTo from "../FlyTo/FlyTo";
+import FlyToCity from "../FlyToCity/FlyToCity";
+import FlyToSite from "../FlyToSite/FlyToSite";
 
 const Mapbox = () => {
   const [popupInfo, setPopupInfo] = useState(null);
   const [destinationList, setDestinationList] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
-  console.log(selectedCity);
+  //   console.log(popupInfo);
 
   const token = sessionStorage.getItem("token");
 
@@ -33,6 +34,7 @@ const Mapbox = () => {
           }
         );
         setDestinationList(response.data);
+        setSelectedCity(response.data[0]);
       } catch (error) {
         console.log(error);
       }
@@ -52,11 +54,11 @@ const Mapbox = () => {
         initialViewState={{
           longitude: -0.137706,
           latitude: 51.513561,
-          zoom: 13,
+          zoom: 12,
         }}
         mapStyle="mapbox://styles/calvin-bochynski-ng/clrew3z3g00e301pd8lzm0hpx"
       >
-        <FlyTo selectedCity={selectedCity} />
+        <FlyToCity selectedCity={selectedCity} />
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
@@ -65,6 +67,7 @@ const Mapbox = () => {
           setPopupInfo={setPopupInfo}
           cityID={!selectedCity ? "1" : selectedCity.id}
         />
+        <FlyToSite popupInfo={popupInfo} />
         <PopupComponent popupInfo={popupInfo} setPopupInfo={setPopupInfo} />
       </Map>
       <div className="mapbox__flyto">
@@ -78,7 +81,6 @@ const Mapbox = () => {
                 defaultChecked={destination.city === "London"}
                 onClick={() => {
                   setSelectedCity(destination);
-                  console.log(destination);
                 }}
               />
               <label htmlFor={destination.id}>{destination.city}</label>
