@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./PopupComponent.scss";
 import { Popup } from "react-map-gl";
 import axios from "axios";
-const PopupComponent = ({ popupInfo, setPopupInfo }) => {
+const PopupComponent = ({ popupInfo, setPopupInfo, handleClick }) => {
   const [imageList, setImageList] = useState("");
   const token = sessionStorage.getItem("token");
 
@@ -49,6 +49,14 @@ const PopupComponent = ({ popupInfo, setPopupInfo }) => {
             );
           })}
         </section>
+        <button
+          className="popup__button"
+          onClick={() => {
+            handleClick(popupInfo);
+          }}
+        >
+          Select Site
+        </button>
       </Popup>
     )
   );
