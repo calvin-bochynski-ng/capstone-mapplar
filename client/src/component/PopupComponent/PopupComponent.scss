@@ -1,0 +1,12 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.popup {
+  &__img-container {
+    display: flex;
+    overflow-y: hidden;
+  }
+  &__img {
+    width: 80vw;
+  }
+}

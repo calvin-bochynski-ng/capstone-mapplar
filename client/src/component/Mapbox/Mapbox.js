@@ -18,8 +18,6 @@ const Mapbox = () => {
   const [popupInfo, setPopupInfo] = useState(null);
   const [destinationList, setDestinationList] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
-  //   console.log(popupInfo);
-
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {

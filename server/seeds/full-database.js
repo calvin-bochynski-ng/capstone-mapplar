@@ -6,6 +6,7 @@ const destinationData = require("../seed-data/destination");
 const siteData = require("../seed-data/site");
 const userData = require("../seed-data/user");
 const postData = require("../seed-data/post");
+const imageData = require("../seed-data/image");
 
 exports.seed = async function (knex) {
   await knex("site").del();
@@ -18,4 +19,5 @@ exports.seed = async function (knex) {
   await knex("site").insert(siteData);
   await knex("user").insert(userData);
   await knex("post").insert(postData);
+  await knex("image").insert(imageData);
 };
