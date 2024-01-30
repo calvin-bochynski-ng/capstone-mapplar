@@ -4,10 +4,9 @@ import {
   NavigationControl,
   FullscreenControl,
   ScaleControl,
-  useMap,
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Pin from "../Pin/Pin";
 import PopupComponent from "../PopupComponent/PopupComponent";
 import axios from "axios";

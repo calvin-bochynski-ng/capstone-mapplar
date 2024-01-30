@@ -16,45 +16,49 @@ function App() {
 
   const [isToken, setIsToken] = useState(false);
 
-  if (!token) {
+  if (!isToken) {
     return (
+      <div className="app">
+        <BrowserRouter>
+          <Header isToken={isToken} />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route
+              path="/login"
+              element={<LoginPage setIsToken={setIsToken} />}
+            />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </div>
+    );
+  }
+
+  return (
+    <div className="app">
       <BrowserRouter>
-        <Header isToken={isToken} />
+        <Header isToken={isToken} setIsToken={setIsToken} />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/" element={<SocialPage setIsToken={setIsToken} />} />
           <Route
-            path="/login"
-            element={<LoginPage setIsToken={setIsToken} />}
+            path="/social"
+            element={<SocialPage setIsToken={setIsToken} />}
+          />
+          <Route
+            path="/planning"
+            element={<PlanningPage setIsToken={setIsToken} />}
+          />
+          <Route
+            path="/itinerary"
+            element={<ItineraryPage setIsToken={setIsToken} />}
           />
           <Route path="/*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
-    );
-  }
-
-  return (
-    <BrowserRouter>
-      <Header isToken={isToken} setIsToken={setIsToken} />
-      <Routes>
-        <Route path="/" element={<SocialPage setIsToken={setIsToken} />} />
-        <Route
-          path="/social"
-          element={<SocialPage setIsToken={setIsToken} />}
-        />
-        <Route
-          path="/planning"
-          element={<PlanningPage setIsToken={setIsToken} />}
-        />
-        <Route
-          path="/itinerary"
-          element={<ItineraryPage setIsToken={setIsToken} />}
-        />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    </div>
   );
 }
 

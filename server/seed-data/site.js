@@ -269,4 +269,13 @@ module.exports = [
     latitude: 22.2795,
     destination_id: 3,
   },
+  {
+    id: 31,
+    site_name: "BrainStation",
+    site_description:
+      "BrainStation can transform your career in just 12 weeks with a full-time data science bootcamp, a web development bootcamp, and a UX design bootcamp program.",
+    longitude: -0.0809,
+    latitude: 51.5263,
+    destination_id: 1,
+  },
 ];
