@@ -10,8 +10,8 @@ const Itinerary = ({ selectedSites }) => {
 
   const generateItinerary = async () => {
     const itineraryDetail = {
-      days: 5,
-      city: "New York",
+      days: 3,
+      city: "London",
       site: siteList,
     };
 
