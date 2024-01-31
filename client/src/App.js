@@ -28,7 +28,7 @@ function App() {
               path="/login"
               element={<LoginPage setIsToken={setIsToken} />}
             />
-            <Route path="/*" element={<NotFound />} />
+            {/* <Route path="/*" element={<NotFound />} /> */}
           </Routes>
           <Footer />
         </BrowserRouter>

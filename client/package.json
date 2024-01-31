@@ -7,6 +7,11 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.6",
+    "exif-reader": "^2.0.1",
+    "exifr": "^6.0.0",
+    "firebase": "^10.7.2",
+    "image-resize-compress": "^1.1.0",
+    "jpeg-exif": "^1.1.4",
     "mapbox-gl": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -15,6 +20,7 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "sass": "^1.70.0",
+    "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
