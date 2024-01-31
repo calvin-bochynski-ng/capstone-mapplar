@@ -8,7 +8,7 @@
   position: relative;
   @include desktop {
     width: 1120px;
-    margin: auto;
+    margin: 0 auto;
   }
   &__logo {
     width: 9rem;

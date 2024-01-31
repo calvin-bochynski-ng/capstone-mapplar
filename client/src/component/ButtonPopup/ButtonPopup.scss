@@ -1,0 +1,14 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.button-popup {
+  position: absolute;
+  bottom: 1rem;
+  z-index: 110;
+  &__title {
+    text-align: center;
+    background-color: $primary-background-color;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+}

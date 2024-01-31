@@ -8,7 +8,7 @@ const FlyToSite = ({ popupInfo }) => {
   }
 
   map.flyTo({
-    center: [popupInfo.longitude, Number(popupInfo.latitude) + 0.015],
+    center: [popupInfo.longitude, Number(popupInfo.latitude) + 0.01],
     zoom: 13,
   });
 

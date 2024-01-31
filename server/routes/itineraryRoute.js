@@ -12,9 +12,9 @@ const format = {
     days: [
       {
         description: "Description of the day in which borough",
-        morning: "Morning description on places to visit",
-        afternoon: "Afternoon description on places to visit",
-        evening: "Evening description on places to visit",
+        morning: "Morning description on places to visit in detail",
+        afternoon: "Afternoon description on places to visit in detail",
+        evening: "Evening description on places to visit in detail",
       },
     ],
   },

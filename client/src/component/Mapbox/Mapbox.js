@@ -13,20 +13,11 @@ import axios from "axios";
 import FlyToCity from "../FlyToCity/FlyToCity";
 import FlyToSite from "../FlyToSite/FlyToSite";
 
-const Mapbox = () => {
+const Mapbox = ({ handleClick, setSelectedSites }) => {
   const [popupInfo, setPopupInfo] = useState(null);
   const [destinationList, setDestinationList] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
   const token = sessionStorage.getItem("token");
-
-  const [selectedSites, setSelectedSites] = useState("");
-
-  const handleClick = (site) => {
-    const selectedList = [...selectedSites, site].filter(
-      (item, index) => [...selectedSites, site].indexOf(item) === index
-    );
-    setSelectedSites(selectedList);
-  };
 
   useEffect(() => {
     const fetchDestination = async () => {
@@ -54,7 +45,7 @@ const Mapbox = () => {
   }
 
   return (
-    <main>
+    <>
       <section className="mapbox">
         <Map
           mapboxAccessToken={process.env.REACT_APP_ACCESS_TOKEN}
@@ -101,19 +92,7 @@ const Mapbox = () => {
           })}
         </div>
       </section>
-      <section>
-        <h1>Selected Sites</h1>
-        {!selectedSites
-          ? ""
-          : selectedSites.map((site, index) => {
-              return (
-                <div key={index}>
-                  <p>{site.site_name}</p>
-                </div>
-              );
-            })}
-      </section>
-    </main>
+    </>
   );
 };
 export default Mapbox;
