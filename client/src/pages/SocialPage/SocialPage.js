@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import exifr from "exifr";
 import { storage } from "../../component/FireBase/FireBase";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import axios from "axios";
 
 import { fromBlob } from "image-resize-compress";
 import { v4 as uuidv4 } from "uuid";
@@ -27,7 +28,7 @@ const SocialPage = ({ setIsToken }) => {
     // note only the blobFile argument is required
     fromBlob(blobFile, quality, width, height, format).then((blob) => {
       // will output the converted blob file
-      console.log(blob);
+      // console.log(blob);
       setNewConvertedImage(blob);
       // will generate a url to the converted file
       // blobToURL(blob).then((url) => console.log(url));
@@ -45,7 +46,7 @@ const SocialPage = ({ setIsToken }) => {
   const uploadImage = async (event) => {
     event.preventDefault();
     if (!newConvertedImage) return;
-    console.log(newConvertedImage);
+    // console.log(newConvertedImage);
     const imageRef = ref(storage, `images/${uuidv4()}`);
     try {
       const snapshot = await uploadBytes(imageRef, newConvertedImage);
@@ -57,7 +58,18 @@ const SocialPage = ({ setIsToken }) => {
         longitude: gpsLongLat[0],
         latitude: gpsLongLat[1],
       };
+
       console.log(formDetail);
+
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/postImage/`,
+        formDetail,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
     } catch (error) {
       console.log(error);
     }

@@ -12,7 +12,7 @@ const destinationRoute = require("./routes/destinationRoute");
 const siteRoute = require("./routes/siteRoute");
 const itineraryRoute = require("./routes/itineraryRoute");
 const uploadRoute = require("./routes/uploadRoute");
-const postImageRoute = require("./");
+const postImageRoute = require("./routes/postImageRoute");
 const PORT = process.env.PORT || 8080;
 const API_URL = process.env.API_URL;
 
@@ -25,6 +25,6 @@ app.use("/login", loginRoute);
 app.use("/destination", authorize, destinationRoute);
 app.use("/site", authorize, siteRoute);
 app.use("/itinerary", authorize, itineraryRoute);
-app.use("/postImage", postImageRoute);
+app.use("/postimage", authorize, postImageRoute);
 
 app.listen(PORT, console.log(`Server has been started at ${API_URL}:${PORT}`));
