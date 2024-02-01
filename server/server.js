@@ -25,6 +25,6 @@ app.use("/login", loginRoute);
 app.use("/destination", authorize, destinationRoute);
 app.use("/site", authorize, siteRoute);
 app.use("/itinerary", authorize, itineraryRoute);
-app.use("/postimage", authorize, postImageRoute);
+app.use("/post", authorize, postImageRoute);
 
 app.listen(PORT, console.log(`Server has been started at ${API_URL}:${PORT}`));

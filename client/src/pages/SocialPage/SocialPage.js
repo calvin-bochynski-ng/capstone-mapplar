@@ -53,17 +53,32 @@ const SocialPage = ({ setIsToken }) => {
       console.log("image uploaded");
       const downloadURL = await getDownloadURL(snapshot.ref);
 
-      const formDetail = {
+      const postDetail = {
+        description: event.target.post.value,
+      };
+
+      const { data: postId } = await axios.post(
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/post/`,
+        postDetail,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log(postId);
+
+      const imageDetail = {
+        post_id: postId,
         img_link: downloadURL,
         longitude: gpsLongLat[0],
         latitude: gpsLongLat[1],
       };
 
-      console.log(formDetail);
-
       await axios.post(
-        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/postImage/`,
-        formDetail,
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/post/image/`,
+        imageDetail,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -97,6 +112,9 @@ const SocialPage = ({ setIsToken }) => {
             handleBlob(event.target.files[0]);
           }}
         />
+
+        <label htmlFor="post">Please add a description to the post:</label>
+        <textarea name="post" id="post" />
         <button>Submit images</button>
       </form>
     </main>

@@ -16,7 +16,7 @@ function App() {
 
   const [isToken, setIsToken] = useState(false);
 
-  if (!isToken) {
+  if (!token) {
     return (
       <div className="app">
         <BrowserRouter>
