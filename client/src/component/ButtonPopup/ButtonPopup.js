@@ -1,11 +1,16 @@
 import "./ButtonPopup.scss";
-import { FaRegArrowAltCircleUp } from "react-icons/fa";
-const ButtonPopup = ({ handleSiteSelected }) => {
+import { FaMapPin } from "react-icons/fa";
+import { Button } from "@mui/material";
+
+const ButtonPopup = ({ handleSiteSelected, selectedSites }) => {
   return (
-    <div className="button-popup" onClick={handleSiteSelected}>
-      <h3 className="button-popup__title">
-        Go to Selected Sites! <FaRegArrowAltCircleUp />
-      </h3>
+    <div className="button-popup">
+      <Button variant="contained" onClick={handleSiteSelected}>
+        <FaMapPin className="button-popup__icon" />
+        {`${selectedSites.length} 
+        ${selectedSites.length > 1 ? "Sites" : "Site"} 
+        selected! `}
+      </Button>
     </div>
   );
 };

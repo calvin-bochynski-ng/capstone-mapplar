@@ -1,5 +1,7 @@
 import "./App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import themeOptions from "./styles/theme";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "./component/Header/Header";
 import Footer from "./component/Footer/Footer";
@@ -13,52 +15,52 @@ import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const token = sessionStorage.getItem("token");
+  // const navigate = useNavigate();
 
   const [isToken, setIsToken] = useState(false);
 
-  if (!token) {
-    return (
+  return (
+    <ThemeProvider theme={themeOptions}>
       <div className="app">
         <BrowserRouter>
-          <Header isToken={isToken} />
+          <Header isToken={token} setIsToken={setIsToken} />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route
-              path="/login"
-              element={<LoginPage setIsToken={setIsToken} />}
-            />
-            {/* <Route path="/*" element={<NotFound />} /> */}
+            {/* Non-User */}
+            {!token ? (
+              <>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/signup" element={<SignUpPage />} />
+                <Route
+                  path="/login"
+                  element={<LoginPage setIsToken={setIsToken} />}
+                />
+              </>
+            ) : (
+              <>
+                <Route
+                  path="/"
+                  element={<SocialPage setIsToken={setIsToken} />}
+                />
+                <Route
+                  path="/social"
+                  element={<SocialPage setIsToken={setIsToken} />}
+                />
+                <Route
+                  path="/planning"
+                  element={<PlanningPage setIsToken={setIsToken} />}
+                />
+                <Route
+                  path="/itinerary"
+                  element={<ItineraryPage setIsToken={setIsToken} />}
+                />
+              </>
+            )}
+            <Route path="/*" element={<NotFound />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </BrowserRouter>
       </div>
-    );
-  }
-
-  return (
-    <div className="app">
-      <BrowserRouter>
-        <Header isToken={isToken} setIsToken={setIsToken} />
-        <Routes>
-          <Route path="/" element={<SocialPage setIsToken={setIsToken} />} />
-          <Route
-            path="/social"
-            element={<SocialPage setIsToken={setIsToken} />}
-          />
-          <Route
-            path="/planning"
-            element={<PlanningPage setIsToken={setIsToken} />}
-          />
-          <Route
-            path="/itinerary"
-            element={<ItineraryPage setIsToken={setIsToken} />}
-          />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-        {/* <Footer /> */}
-      </BrowserRouter>
-    </div>
+    </ThemeProvider>
   );
 }
 

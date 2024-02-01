@@ -13,10 +13,15 @@ import axios from "axios";
 import FlyToCity from "../FlyToCity/FlyToCity";
 import FlyToSite from "../FlyToSite/FlyToSite";
 
-const Mapbox = ({ handleClick, setSelectedSites }) => {
+const Mapbox = ({
+  handleClick,
+  setSelectedSites,
+  setIsButton,
+  selectedCity,
+  setSelectedCity,
+}) => {
   const [popupInfo, setPopupInfo] = useState(null);
   const [destinationList, setDestinationList] = useState(null);
-  const [selectedCity, setSelectedCity] = useState(null);
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
@@ -47,6 +52,36 @@ const Mapbox = ({ handleClick, setSelectedSites }) => {
   return (
     <>
       <section className="mapbox">
+        <div className="mapbox__flyto">
+          <h3 className="mapbox__destination-title">
+            Choose your destination:
+          </h3>
+          <section className="mapbox__destination">
+            {destinationList.map((destination) => {
+              return (
+                <article
+                  key={destination.id}
+                  className="mapbox__radio-container"
+                >
+                  <input
+                    type="radio"
+                    name="city"
+                    id={destination.id}
+                    defaultChecked={destination.city === "London"}
+                    onClick={() => {
+                      setSelectedCity(destination);
+                      setSelectedSites("");
+                      setIsButton(false);
+                    }}
+                  />
+                  <label htmlFor={destination.id} className="mapbox__radio">
+                    {destination.city}
+                  </label>
+                </article>
+              );
+            })}
+          </section>
+        </div>
         <Map
           mapboxAccessToken={process.env.REACT_APP_ACCESS_TOKEN}
           initialViewState={{
@@ -57,9 +92,7 @@ const Mapbox = ({ handleClick, setSelectedSites }) => {
           mapStyle="mapbox://styles/calvin-bochynski-ng/clrew3z3g00e301pd8lzm0hpx"
         >
           <FlyToCity selectedCity={selectedCity} />
-          <FullscreenControl position="top-left" />
           <NavigationControl position="top-left" />
-          <ScaleControl />
 
           <Pin
             setPopupInfo={setPopupInfo}
@@ -72,25 +105,6 @@ const Mapbox = ({ handleClick, setSelectedSites }) => {
             handleClick={handleClick}
           />
         </Map>
-        <div className="mapbox__flyto">
-          {destinationList.map((destination) => {
-            return (
-              <article key={destination.id}>
-                <input
-                  type="radio"
-                  name="city"
-                  id={destination.id}
-                  defaultChecked={destination.city === "London"}
-                  onClick={() => {
-                    setSelectedCity(destination);
-                    setSelectedSites("");
-                  }}
-                />
-                <label htmlFor={destination.id}>{destination.city}</label>
-              </article>
-            );
-          })}
-        </div>
       </section>
     </>
   );

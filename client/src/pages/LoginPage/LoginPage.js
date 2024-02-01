@@ -40,13 +40,13 @@ const LoginPage = ({ setIsToken }) => {
       <h1>Log In</h1>
       <form className="sign-up" onSubmit={handleSubmit}>
         <Input
-          label="Username: "
+          label="Username"
           name="username"
           type="text"
           handleFormChange={handleFormChange}
         />
         <Input
-          label="Password: "
+          label="Password"
           name="password"
           type="password"
           handleFormChange={handleFormChange}

@@ -1,9 +1,18 @@
 import "./Input.scss";
+import TextField from "@mui/material/TextField";
 
 const Input = ({ label, name, type, handleFormChange }) => {
   return (
     <div className="input">
-      <label htmlFor={name} className="input__label">
+      <TextField
+        // id="standard-basic"
+        label={label}
+        name={name}
+        type={type}
+        variant="standard"
+        onChange={handleFormChange}
+      />
+      {/* <label htmlFor={name} className="input__label">
         {label}
       </label>
       <input
@@ -12,7 +21,7 @@ const Input = ({ label, name, type, handleFormChange }) => {
         name={name}
         className="input__input"
         onChange={handleFormChange}
-      />
+      /> */}
     </div>
   );
 };

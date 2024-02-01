@@ -46,43 +46,43 @@ const SignUpPage = () => {
       <h1>Sign Up</h1>
       <form className="sign-up" onSubmit={handleSubmit}>
         <Input
-          label="Username: "
+          label="Username"
           name="username"
           type="text"
           handleFormChange={handleFormChange}
         />
         <Input
-          label="First Name: "
+          label="First Name"
           name="first_name"
           type="text"
           handleFormChange={handleFormChange}
         />
         <Input
-          label="Last Name: "
+          label="Last Name"
           name="last_name"
           type="text"
           handleFormChange={handleFormChange}
         />
         <Input
-          label="Phone Number: "
+          label="Phone Number"
           name="phone_number"
           type="text"
           handleFormChange={handleFormChange}
         />
         <Input
-          label="Email: "
+          label="Email"
           name="email"
           type="text"
           handleFormChange={handleFormChange}
         />
         <Input
-          label="Password: "
+          label="Password"
           name="password"
           type="password"
           handleFormChange={handleFormChange}
         />
         <Input
-          label="Confirm Password: "
+          label="Confirm Password"
           name="password_confirm"
           type="password"
           handleFormChange={handleFormChange}

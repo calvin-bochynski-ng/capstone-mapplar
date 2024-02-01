@@ -2,11 +2,33 @@
 @use "../../styles/partials/mixins" as *;
 
 .popup {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  &__title {
+    margin: 0;
+  }
   &__img-container {
     display: flex;
     overflow-y: hidden;
+    margin: 0.5rem 0;
   }
   &__img {
-    width: 80vw;
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
   }
+  &__description {
+    font-family: "noto sans";
+    margin: 1rem 0;
+  }
+}
+.mapboxgl-popup-tip {
+  border-top-color: $primary-background-color;
+}
+
+.mapboxgl-popup-content {
+  width: 100%;
+  border-radius: 10px;
+  background-color: $primary-background-color;
 }

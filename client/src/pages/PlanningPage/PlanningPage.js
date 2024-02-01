@@ -10,10 +10,12 @@ const PlanningPage = ({ setIsToken }) => {
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
 
+  const [selectedCity, setSelectedCity] = useState(null);
   const [selectedSites, setSelectedSites] = useState("");
   const [isPlannerClick, setIsPlannerClick] = useState(false);
   const [isButton, setIsButton] = useState(false);
   const [isItineary, setIsItinerary] = useState(false);
+  const [days, setDays] = useState("");
 
   const handleClick = (site) => {
     const selectedList = [...selectedSites, site].filter(
@@ -24,8 +26,13 @@ const PlanningPage = ({ setIsToken }) => {
   };
 
   const handleSiteSelected = () => {
-    setIsPlannerClick(!isPlannerClick);
+    setIsPlannerClick(true);
     setIsButton(false);
+  };
+
+  const handleSiteClose = () => {
+    setIsPlannerClick(false);
+    setIsButton(true);
   };
 
   useEffect(() => {
@@ -37,18 +44,40 @@ const PlanningPage = ({ setIsToken }) => {
 
   return (
     <main className="planning">
-      <Mapbox handleClick={handleClick} setSelectedSites={setSelectedSites} />
-      {!isButton ? "" : <ButtonPopup handleSiteSelected={handleSiteSelected} />}
+      <Mapbox
+        handleClick={handleClick}
+        setSelectedSites={setSelectedSites}
+        setIsButton={setIsButton}
+        setSelectedCity={setSelectedCity}
+        selectedCity={selectedCity}
+      />
+      {!isButton ? (
+        ""
+      ) : (
+        <ButtonPopup
+          handleSiteSelected={handleSiteSelected}
+          selectedSites={selectedSites}
+        />
+      )}
 
       {!isPlannerClick ? (
         ""
       ) : !isItineary ? (
         <Planner
+          handleSiteClose={handleSiteClose}
           selectedSites={selectedSites}
           setIsItinerary={setIsItinerary}
+          setSelectedSites={setSelectedSites}
+          setDays={setDays}
+          days={days}
+          setIsButton={setIsButton}
         />
       ) : (
-        <Itinerary selectedSites={selectedSites} />
+        <Itinerary
+          selectedSites={selectedSites}
+          days={days}
+          selectedCity={selectedCity}
+        />
       )}
     </main>
   );

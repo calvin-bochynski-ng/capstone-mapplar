@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./NavBar.scss";
 import { HiBars3 } from "react-icons/hi2";
 import { LiaTimesSolid } from "react-icons/lia";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const NavBar = ({ isToken, setIsToken }) => {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ const NavBar = ({ isToken, setIsToken }) => {
 
   const handleSignOut = () => {
     handleIsClick();
-    sessionStorage.removeItem("token");
     setIsToken(false);
+    sessionStorage.removeItem("token");
     navigate("/");
   };
 
@@ -30,39 +30,59 @@ const NavBar = ({ isToken, setIsToken }) => {
         {!isToken ? (
           <>
             <li className="nav__item">
-              <Link to="/" onClick={handleIsClick}>
+              <NavLink to="/" onClick={handleIsClick} className="nav__link">
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <Link to="/signup" onClick={handleIsClick}>
+              <NavLink
+                to="/signup"
+                onClick={handleIsClick}
+                className="nav__link"
+              >
                 Sign Up
-              </Link>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <Link to="/login" onClick={handleIsClick}>
+              <NavLink
+                to="/login"
+                onClick={handleIsClick}
+                className="nav__link"
+              >
                 Log In
-              </Link>
+              </NavLink>
             </li>
           </>
         ) : (
           <>
             <li className="nav__item">
-              <Link to="/social" onClick={handleIsClick}>
+              <NavLink
+                to="/social"
+                onClick={handleIsClick}
+                className="nav__link"
+              >
                 Social
-              </Link>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <Link to="/planning" onClick={handleIsClick}>
+              <NavLink
+                to="/planning"
+                onClick={handleIsClick}
+                className="nav__link"
+              >
                 Planning
-              </Link>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <Link to="/itinerary" onClick={handleIsClick}>
+              <NavLink
+                to="/itinerary"
+                onClick={handleIsClick}
+                className="nav__link"
+              >
                 Profile
-              </Link>
+              </NavLink>
             </li>
-            <li className="nav__item" onClick={handleSignOut}>
+            <li className="nav__link" onClick={handleSignOut}>
               Sign Out
             </li>
           </>

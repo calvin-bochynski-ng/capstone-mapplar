@@ -5,6 +5,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: $primary-style-color;
+  padding: 0.5rem 1rem;
   position: relative;
   @include desktop {
     width: 1120px;

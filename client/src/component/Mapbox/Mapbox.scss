@@ -4,18 +4,31 @@
 .mapbox {
   width: 100vw;
   height: 100%;
-  position: relative;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
 
   &__flyto {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
     padding: 1rem;
-    margin: 1rem;
+    // margin: 1rem;
     background-color: $primary-background-color;
     border-radius: 5px;
+  }
+  &__destination {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__destination-title {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  &__radio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__radio {
+    @include text-style(0.75rem, 0.88rem);
   }
 }
 
