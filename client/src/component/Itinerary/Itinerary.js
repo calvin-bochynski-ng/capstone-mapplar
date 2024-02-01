@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import "./Itinerary.scss";
 import axios from "axios";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
+import logo from "../../assets/images/plain-logo.svg";
+
 const Itinerary = ({ selectedSites, selectedCity, days }) => {
   const [itineraryForm, setItineraryForm] = useState(null);
   const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
   let siteList = selectedSites.map((site) => site.site_name);
 
   const generateItinerary = async () => {
@@ -26,11 +33,19 @@ const Itinerary = ({ selectedSites, selectedCity, days }) => {
   };
 
   useEffect(() => {
-    generateItinerary();
+    // generateItinerary();
   }, []);
 
   if (!itineraryForm) {
-    return <p>Loading...</p>;
+    return (
+      <main className="loading">
+        <img src={logo} alt="" className="loading__img" />
+        <h2>Loading...</h2>
+        <Box sx={{ width: "60%" }}>
+          <LinearProgress />
+        </Box>
+      </main>
+    );
   }
 
   return (
@@ -46,6 +61,15 @@ const Itinerary = ({ selectedSites, selectedCity, days }) => {
           </div>
         );
       })}
+
+      <Button
+        variant="standard"
+        onClick={() => {
+          navigate("/itinerary");
+        }}
+      >
+        Back to profile page!
+      </Button>
     </section>
   );
 };

@@ -3,7 +3,8 @@ import Input from "../../component/Input/Input";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Button } from "@mui/material";
+import logo from "../../assets/images/plain-logo.svg";
 const LoginPage = ({ setIsToken }) => {
   const navigate = useNavigate();
   const [formDetail, setFormDetail] = useState({
@@ -36,9 +37,10 @@ const LoginPage = ({ setIsToken }) => {
     }
   };
   return (
-    <main>
-      <h1>Log In</h1>
-      <form className="sign-up" onSubmit={handleSubmit}>
+    <main className="login">
+      <img src={logo} alt="" className="login__img" />
+      <h1 className="login__title">Log In</h1>
+      <form className="login__container">
         <Input
           label="Username"
           name="username"
@@ -51,7 +53,11 @@ const LoginPage = ({ setIsToken }) => {
           type="password"
           handleFormChange={handleFormChange}
         />
-        <button>Submit</button>
+        <div className="login__button">
+          <Button variant="contained" onClick={handleSubmit}>
+            Log In
+          </Button>
+        </div>
       </form>
     </main>
   );

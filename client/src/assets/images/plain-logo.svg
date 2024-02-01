@@ -7,7 +7,7 @@
       }
 
       .cls-1, .cls-3 {
-        stroke: #231f20;
+        stroke: #020812;
         stroke-linecap: round;
         stroke-linejoin: round;
       }
@@ -29,7 +29,7 @@
       }
 
       .cls-6 {
-        fill: #fff;
+        fill: #f1f5fe;
       }
     </style>
     <clipPath id="clippath">

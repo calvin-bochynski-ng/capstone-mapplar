@@ -6,12 +6,15 @@
   flex-direction: column;
   overflow-y: hidden;
   &__title {
-    margin: 0;
+    margin: 0.5rem 0;
   }
   &__img-container {
     display: flex;
     overflow-y: hidden;
     margin: 0.5rem 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   &__img {
     width: 12rem;
