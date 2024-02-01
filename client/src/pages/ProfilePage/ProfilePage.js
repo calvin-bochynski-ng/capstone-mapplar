@@ -1,4 +1,4 @@
-import "./ItineraryPage.scss";
+import "./ProfilePage.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const ItineraryPage = ({ setIsToken }) => {
@@ -12,6 +12,6 @@ const ItineraryPage = ({ setIsToken }) => {
     }
   }, []);
 
-  return <div>ItineraryPage</div>;
+  return <h1>Profile Page</h1>;
 };
 export default ItineraryPage;

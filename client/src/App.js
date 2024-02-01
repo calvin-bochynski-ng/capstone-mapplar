@@ -10,7 +10,7 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SocialPage from "./pages/SocialPage/SocialPage";
 import PlanningPage from "./pages/PlanningPage/PlanningPage";
-import ItineraryPage from "./pages/ItineraryPage/ItineraryPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
@@ -50,8 +50,8 @@ function App() {
                   element={<PlanningPage setIsToken={setIsToken} />}
                 />
                 <Route
-                  path="/itinerary"
-                  element={<ItineraryPage setIsToken={setIsToken} />}
+                  path="/profile"
+                  element={<ProfilePage setIsToken={setIsToken} />}
                 />
               </>
             )}

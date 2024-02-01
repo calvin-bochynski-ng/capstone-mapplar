@@ -75,7 +75,7 @@ const NavBar = ({ isToken, setIsToken }) => {
             </li>
             <li className="nav__item">
               <NavLink
-                to="/itinerary"
+                to="/profile"
                 onClick={handleIsClick}
                 className="nav__link"
               >

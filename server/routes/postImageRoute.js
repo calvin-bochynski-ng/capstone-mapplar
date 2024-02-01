@@ -18,7 +18,6 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/image", async (req, res) => {
-  console.log(req.body);
   try {
     const sites = await knex("site");
     const selectedSite = sites.filter(
@@ -28,8 +27,6 @@ router.post("/image", async (req, res) => {
         site.longitude - req.body.longitude <= 0.004 &&
         site.longitude - req.body.longitude >= -0.004
     );
-
-    console.log(selectedSite);
 
     await knex("image").insert({
       image_link: req.body.img_link,

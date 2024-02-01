@@ -4,7 +4,7 @@
 .nav {
   position: absolute;
   right: 0;
-  top: 0.5rem;
+  top: 1.25rem;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,6 @@
     list-style: none;
     background-color: $primary-style-color;
     margin: 0;
-    padding: 0.5rem 0;
 
     @include tablet {
       display: flex;
