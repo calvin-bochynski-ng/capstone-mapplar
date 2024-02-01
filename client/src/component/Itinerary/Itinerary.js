@@ -33,7 +33,7 @@ const Itinerary = ({ selectedSites, selectedCity, days }) => {
   };
 
   useEffect(() => {
-    // generateItinerary();
+    generateItinerary();
   }, []);
 
   if (!itineraryForm) {
