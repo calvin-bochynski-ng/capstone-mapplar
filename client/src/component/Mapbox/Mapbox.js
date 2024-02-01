@@ -1,10 +1,5 @@
 import "./Mapbox.scss";
-import {
-  Map,
-  NavigationControl,
-  FullscreenControl,
-  ScaleControl,
-} from "react-map-gl";
+import { Map, NavigationControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useState } from "react";
 import Pin from "../Pin/Pin";

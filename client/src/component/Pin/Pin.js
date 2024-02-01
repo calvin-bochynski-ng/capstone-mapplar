@@ -3,6 +3,7 @@ import "./Pin.scss";
 import axios from "axios";
 import { Marker } from "react-map-gl";
 import { useState } from "react";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const Pin = ({ setPopupInfo, cityID }) => {
   const [siteList, setSiteList] = useState("");
@@ -42,12 +43,12 @@ const Pin = ({ setPopupInfo, cityID }) => {
         longitude={site.longitude}
         latitude={site.latitude}
         onClick={(e) => {
-          // If we let the click event propagates to the map, it will immediately close the popup
-          // with `closeOnClick: true`
           e.originalEvent.stopPropagation();
           setPopupInfo(site);
         }}
-      />
+      >
+        <LocationOnIcon color="primary" fontSize="large" />
+      </Marker>
     );
   });
 };

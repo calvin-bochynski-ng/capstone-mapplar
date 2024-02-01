@@ -4,7 +4,12 @@ import { Popup } from "react-map-gl";
 import axios from "axios";
 import { Button } from "@mui/material";
 
-const PopupComponent = ({ popupInfo, setPopupInfo, handleClick }) => {
+const PopupComponent = ({
+  popupInfo,
+  setPopupInfo,
+  handleClick,
+  setSiteSelected,
+}) => {
   const [imageList, setImageList] = useState("");
   const token = sessionStorage.getItem("token");
 

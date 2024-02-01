@@ -3,6 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import Input from "../../component/Input/Input";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import { FormControl } from "@mui/material";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -42,9 +44,9 @@ const SignUpPage = () => {
     }
   };
   return (
-    <main>
-      <h1>Sign Up</h1>
-      <form className="sign-up" onSubmit={handleSubmit}>
+    <main className="sign-up">
+      <h1 className="sign-up__title">Sign Up</h1>
+      <form className="sign-up__container">
         <Input
           label="Username"
           name="username"
@@ -87,7 +89,14 @@ const SignUpPage = () => {
           type="password"
           handleFormChange={handleFormChange}
         />
-        <button>Submit</button>
+        <div className="sign-up__button">
+          <Button variant="outlined" color="error" onClick={() => {}}>
+            Cancel
+          </Button>
+          <Button variant="contained" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </div>
       </form>
     </main>
   );
