@@ -15,6 +15,7 @@ exports.seed = async function (knex) {
   await knex("post").del();
   await knex("itinerary").del();
   await knex("image").del();
+  await knex("follow").del();
   await knex("destination").insert(destinationData);
   await knex("site").insert(siteData);
   await knex("user").insert(userData);

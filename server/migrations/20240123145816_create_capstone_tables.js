@@ -77,6 +77,16 @@ exports.up = function (knex) {
       table.integer("site_id").unsigned().references("site.id");
       table.integer("post_id").unsigned().references("post.id");
       table.timestamp("created_at").defaultTo(knex.fn.now());
+    })
+    .createTable("follow", (table) => {
+      table.increments("id").primary();
+      table
+        .integer("user_id")
+        .unsigned()
+        .references("user.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+      table.integer("friend_id").unsigned();
     });
 };
 
