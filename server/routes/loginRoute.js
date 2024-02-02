@@ -16,7 +16,6 @@ router.post("/", async (req, res) => {
 
   try {
     const user = await knex("user").where({ username: username }).first();
-    console.log(user);
 
     const passwordCorrect = bcrypt.compareSync(password, user.password);
 

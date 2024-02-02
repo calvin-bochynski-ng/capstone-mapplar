@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
     const post = await knex("post").insert({
       description: req.body.description,
       like: 0,
-      user_id: req.body.id,
+      user_id: req.body.main_usr_id,
     });
     res.status(201).json(post);
   } catch (error) {
@@ -17,31 +17,31 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
-  try {
-    const posts = await knex("user")
-      .join("post", "user_id", "=", "user.id")
-      .join("image", "post_id", "=", "post.id")
-      .join("site", "site_id", "=", "site.id")
-      .join("destination", "destination_id", "=", "destination.id")
-      .where({ "user.id": req.body.id })
-      .select(
-        "user.avatar",
-        "user.username",
-        "post.description",
-        "post.like",
-        "post.created_at",
-        "image.image_link",
-        "site_name",
-        "destination.city"
-      )
-      .orderBy("post.created_at", "desc");
+// router.get("/", async (req, res) => {
+//   try {
+//     const posts = await knex("user")
+//       .join("post", "user_id", "=", "user.id")
+//       .join("image", "post_id", "=", "post.id")
+//       .join("site", "site_id", "=", "site.id")
+//       .join("destination", "destination_id", "=", "destination.id")
+//       .where({ "user.id": req.body.main_usr_id })
+//       .select(
+//         "user.avatar",
+//         "user.username",
+//         "post.description",
+//         "post.like",
+//         "post.created_at",
+//         "image.image_link",
+//         "site_name",
+//         "destination.city"
+//       )
+//       .orderBy("post.created_at", "desc");
 
-    res.status(200).json(posts);
-  } catch (error) {
-    console.log(error);
-  }
-});
+//     res.status(200).json(posts);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 router.post("/image", async (req, res) => {
   try {
@@ -56,12 +56,64 @@ router.post("/image", async (req, res) => {
 
     await knex("image").insert({
       image_link: req.body.img_link,
-      user_id: req.body.id,
+      user_id: req.body.main_usr_id,
       site_id: selectedSite[0].id,
       post_id: req.body.post_id,
     });
 
     return res.status(201).json("Post Created");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    //lostie - 21, current
+
+    const userPost = await knex("post")
+      .where({
+        "post.user_id": req.body.main_usr_id,
+      })
+      .join("user", "user.id", "=", "post.user_id")
+      .join("image", "image.post_id", "=", "post.id")
+      .join("site", "site.id", "=", "image.site_id")
+      .join("destination", "destination.id", "=", "site.destination_id")
+      .select(
+        "user.avatar",
+        "user.username",
+        "post.description",
+        "post.like",
+        "post.created_at",
+        "image.image_link",
+        "site_name",
+        "destination.city"
+      );
+
+    const friendPost = await knex("follow")
+      .where({
+        "follow.user_id": req.body.main_usr_id,
+      })
+      .join("post", "post.user_id", "=", "follow.friend_id")
+      .join("image", "image.post_id", "=", "post.id")
+      .join("user", "user.id", "=", "follow.friend_id")
+      .join("site", "site.id", "=", "image.site_id")
+      .join("destination", "destination.id", "=", "site.destination_id")
+      .select(
+        "user.avatar",
+        "user.username",
+        "post.description",
+        "post.like",
+        "post.created_at",
+        "image.image_link",
+        "site_name",
+        "destination.city"
+      );
+
+    const sortedPost = userPost
+      .concat(friendPost)
+      .sort((a, b) => b.created_at - a.created_at);
+    res.status(200).json(sortedPost);
   } catch (error) {
     console.log(error);
   }

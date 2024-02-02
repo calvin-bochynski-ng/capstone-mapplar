@@ -23,7 +23,7 @@ const format = {
 router.get("/", async (req, res) => {
   try {
     const itineraries = await knex("itinerary").where({
-      user_id: req.body.id,
+      user_id: req.body.main_usr_id,
     });
     res.json(itineraries);
   } catch (error) {
@@ -73,7 +73,7 @@ router.post("/", async (req, res) => {
     .first();
 
   const newItinerary = {
-    user_id: req.body.id,
+    user_id: req.body.main_usr_id,
     destination_id: selectedDestination.id,
     pdf_link: `${API_URL}:${PORT}/public/itinerary`,
     itinerary_description: openAiContent,

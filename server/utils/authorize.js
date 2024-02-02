@@ -8,7 +8,7 @@ const authorize = async (req, res, next) => {
   const authToken = authHeader.split(" ")[1];
   try {
     const decoded = jwt.verify(authToken, process.env.JWT_SECRET);
-    req.body = { ...req.body, id: decoded.id };
+    req.body = { ...req.body, main_usr_id: decoded.id };
   } catch (error) {
     return res.status(401).send("Invalid auth token");
   }

@@ -4,10 +4,9 @@ const router = express.Router();
 const knex = require("knex")(require("../knexfile"));
 
 router.get("/", async (req, res) => {
-  // console.log(req.body);
   try {
     const profile = await knex("user")
-      .where({ "user.id": req.body.id })
+      .where({ "user.id": req.body.main_usr_id })
       .select("username", "avatar", "user.id")
       .first();
 
@@ -19,13 +18,12 @@ router.get("/", async (req, res) => {
 
 router.get("/destination/:city", async (req, res) => {
   const { city } = req.params;
-  console.log(city);
 
   try {
     const profile = await knex("user")
       .join("itinerary", "user.id", "=", "user_id")
       .join("destination", "destination_id", "=", "destination.id")
-      .where({ user_id: req.body.id })
+      .where({ user_id: req.body.main_usr_id })
       .where({ City: city })
       .orderBy("itinerary.id", "desc")
       .select("itinerary_description")
@@ -39,7 +37,6 @@ router.get("/destination/:city", async (req, res) => {
 
 router.get("/:userid", async (req, res) => {
   const { userid } = req.params;
-  console.log(userid);
 
   try {
     const profile = await knex("user")
