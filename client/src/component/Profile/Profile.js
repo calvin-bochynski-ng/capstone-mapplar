@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Profile.scss";
 import axios from "axios";
+import { Button } from "@mui/material";
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 
 const Profile = ({ userid, isSearch }) => {
   const [profileDetail, setProfileDetail] = useState(null);
@@ -39,6 +41,15 @@ const Profile = ({ userid, isSearch }) => {
         className="profile__img"
       />
       <h2 className="profile__username">{profileDetail.username}</h2>
+      {!userid ? (
+        ""
+      ) : (
+        <div className="profile__follow">
+          <Button variant="contained" startIcon={<PersonAddAlt1Icon />}>
+            Follow Me!
+          </Button>
+        </div>
+      )}
     </section>
   );
 };

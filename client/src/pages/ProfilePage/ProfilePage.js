@@ -25,6 +25,7 @@ const ProfilePage = ({ setIsToken }) => {
         <Search setIsSearch={setIsSearch} />
       </div>
       <Profile userid={userid} isSearch={isSearch} />
+
       <section className="profile__itinerary">
         <h1>Recent Itinerary</h1>
         <AccordionCard
