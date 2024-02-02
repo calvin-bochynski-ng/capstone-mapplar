@@ -27,7 +27,7 @@ const Post = ({ isUpdate }) => {
   }
 
   return (
-    <main>
+    <>
       {profile.map((post, index) => {
         const date = new Date(post.created_at);
         return (
@@ -53,7 +53,7 @@ const Post = ({ isUpdate }) => {
           </article>
         );
       })}
-    </main>
+    </>
   );
 };
 export default Post;

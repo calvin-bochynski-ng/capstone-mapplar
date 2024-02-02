@@ -18,9 +18,11 @@ const SocialPage = ({ setIsToken }) => {
   }, []);
 
   return (
-    <main>
+    <main className="social">
       <Upload setIsUpdate={setIsUpdate} />
-      <Post isUpdate={isUpdate} />
+      <section className="social__post">
+        <Post isUpdate={isUpdate} />
+      </section>
     </main>
   );
 };

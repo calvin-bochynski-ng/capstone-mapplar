@@ -14,8 +14,8 @@ const NavBar = ({ isToken, setIsToken }) => {
 
   const handleSignOut = () => {
     handleIsClick();
-    setIsToken(false);
     sessionStorage.removeItem("token");
+    setIsToken(false);
     navigate("/");
   };
 

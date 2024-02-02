@@ -2,7 +2,17 @@
 @use "../../styles/partials/mixins" as *;
 
 .social {
-  &__img {
-    width: 100%;
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__post {
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 }

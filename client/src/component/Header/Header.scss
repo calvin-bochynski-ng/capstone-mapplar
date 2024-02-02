@@ -2,15 +2,22 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: $primary-style-color;
-  padding: 1rem 1rem;
-  position: relative;
-  @include desktop {
-    width: 1120px;
-    margin: 0 auto;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-style-color;
+    padding: 1rem 1rem;
+    position: relative;
+    @include tablet {
+      padding: 1rem 2rem;
+    }
+    @include desktop {
+      width: 1280px;
+      margin: 0 auto;
+    }
   }
   &__logo {
     width: 9rem;

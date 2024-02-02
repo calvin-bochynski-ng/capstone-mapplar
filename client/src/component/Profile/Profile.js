@@ -67,8 +67,6 @@ const Profile = ({ userid, isSearch }) => {
         }
       );
 
-      console.log(response.data.friend_id);
-
       if (Number(response.data.friend_id) === Number(userid)) {
         setFriend(true);
       }

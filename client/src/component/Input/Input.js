@@ -11,6 +11,7 @@ const Input = ({ label, name, type, handleFormChange }) => {
         type={type}
         variant="standard"
         onChange={handleFormChange}
+        fullWidth
       />
       {/* <label htmlFor={name} className="input__label">
         {label}

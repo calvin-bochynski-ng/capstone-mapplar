@@ -5,11 +5,18 @@
   border-radius: 5px;
   margin: 1rem;
   box-shadow: 0px 2px 5px 0px #0208124d;
+  @include tablet {
+    width: 40%;
+  }
 
   &__container {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0.5rem;
+    padding: 1rem 0.5rem;
+    height: 5rem;
+    background-color: $primary-style-color;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
   }
   &__avatar {
     width: 2rem;
@@ -20,11 +27,6 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-  }
-  &__container {
-    background-color: $primary-style-color;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
   }
 
   &__text-container {
@@ -38,12 +40,19 @@
   }
   &__location {
     margin: 0;
+    margin-right: 2rem;
     color: $primary-background-color;
-    @include text-style(0.75rem, 1.13rem);
+    @include text-style(0.63rem, 1.13rem);
+    @include tablet {
+      @include text-style(0.75rem, 1.31rem);
+    }
   }
   &__timestamp {
     color: $primary-background-color;
+    width: 4.5rem;
     @include text-style(0.63rem, 1.13rem);
+    display: flex;
+    justify-content: flex-end;
   }
   &__img {
     width: 100%;
@@ -51,5 +60,6 @@
   &__description {
     margin: 0;
     padding: 0.5rem;
+    @include text-style(0.88rem, 1.13rem);
   }
 }

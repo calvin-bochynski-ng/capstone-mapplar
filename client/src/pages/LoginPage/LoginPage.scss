@@ -13,12 +13,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+  }
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      gap: 5rem;
+    }
   }
   &__button {
     margin: 1rem 0;
   }
   &__img {
-    width: 30%;
+    width: 8rem;
+    @include tablet {
+      width: 10rem;
+    }
   }
 }

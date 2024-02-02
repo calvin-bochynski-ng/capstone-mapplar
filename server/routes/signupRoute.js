@@ -44,7 +44,7 @@ router.post("/", async (req, res) => {
     email,
     role: "standard user",
     password: hashedPassword,
-    avatar: ` https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=${first_name}`,
+    avatar: ` https://api.dicebear.com/7.x/fun-emoji/svg?seed=${username}`,
   };
 
   try {

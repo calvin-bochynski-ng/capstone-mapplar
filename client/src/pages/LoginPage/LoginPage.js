@@ -41,18 +41,20 @@ const LoginPage = ({ setIsToken }) => {
       <img src={logo} alt="" className="login__img" />
       <h1 className="login__title">Log In</h1>
       <form className="login__container">
-        <Input
-          label="Username"
-          name="username"
-          type="text"
-          handleFormChange={handleFormChange}
-        />
-        <Input
-          label="Password"
-          name="password"
-          type="password"
-          handleFormChange={handleFormChange}
-        />
+        <div className="login__input-container">
+          <Input
+            label="Username"
+            name="username"
+            type="text"
+            handleFormChange={handleFormChange}
+          />
+          <Input
+            label="Password"
+            name="password"
+            type="password"
+            handleFormChange={handleFormChange}
+          />
+        </div>
         <div className="login__button">
           <Button variant="contained" onClick={handleSubmit}>
             Log In

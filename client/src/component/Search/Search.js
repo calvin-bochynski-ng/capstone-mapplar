@@ -30,6 +30,7 @@ const Search = ({ setIsSearch }) => {
               },
             }
           );
+          console.log(response.data);
           setFoundProfile(response.data);
           setIsSearch(false);
         } catch (error) {
