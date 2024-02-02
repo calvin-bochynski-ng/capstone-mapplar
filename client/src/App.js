@@ -53,6 +53,10 @@ function App() {
                   path="/profile"
                   element={<ProfilePage setIsToken={setIsToken} />}
                 />
+                <Route
+                  path="/profile/:userid"
+                  element={<ProfilePage setIsToken={setIsToken} />}
+                />
               </>
             )}
             <Route path="/*" element={<NotFound />} />

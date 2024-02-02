@@ -66,7 +66,7 @@ const Upload = ({ setIsUpdate }) => {
         }
       );
 
-      console.log(postId);
+      // console.log(postId);
 
       const imageDetail = {
         post_id: postId,

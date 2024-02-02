@@ -4,7 +4,7 @@ const router = express.Router();
 const knex = require("knex")(require("../knexfile"));
 
 router.post("/", async (req, res) => {
-  console.log(req.body.description);
+  // console.log(req.body.description);
   try {
     const post = await knex("post").insert({
       description: req.body.description,

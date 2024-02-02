@@ -63,9 +63,9 @@ const Itinerary = ({ selectedSites, selectedCity, days }) => {
       })}
 
       <Button
-        variant="standard"
+        variant="contained"
         onClick={() => {
-          navigate("/itinerary");
+          navigate("/profile");
         }}
       >
         Back to profile page!

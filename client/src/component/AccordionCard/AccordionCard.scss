@@ -1,10 +1,5 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.profile {
-  width: 100vw;
-  &__search {
-    width: 100%;
-    padding: 0rem 1rem;
-  }
+.accordion-card {
 }
