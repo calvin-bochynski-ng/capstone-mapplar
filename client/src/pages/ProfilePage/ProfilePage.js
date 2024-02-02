@@ -1,10 +1,10 @@
 import "./ProfilePage.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 const ItineraryPage = ({ setIsToken }) => {
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
-
   useEffect(() => {
     if (!token) {
       setIsToken(false);
@@ -12,6 +12,6 @@ const ItineraryPage = ({ setIsToken }) => {
     }
   }, []);
 
-  return <h1>Profile Page</h1>;
+  return <main></main>;
 };
 export default ItineraryPage;

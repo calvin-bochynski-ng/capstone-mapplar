@@ -14,7 +14,7 @@ import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import { TextField } from "@mui/material";
 import PublishIcon from "@mui/icons-material/Publish";
 
-const Upload = () => {
+const Upload = ({ setIsUpdate }) => {
   const token = sessionStorage.getItem("token");
 
   const [gpsLongLat, setGpsLongLat] = useState([]);
@@ -86,6 +86,7 @@ const Upload = () => {
       );
       setImageUpload(null);
       setMessage("");
+      setIsUpdate(true);
     } catch (error) {
       console.log(error);
     }

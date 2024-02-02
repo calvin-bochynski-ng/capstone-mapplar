@@ -4,7 +4,7 @@ const router = express.Router();
 const knex = require("knex")(require("../knexfile"));
 
 router.get("/", async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const profile = await knex("user")
       .join("post", "user_id", "=", "user.id")
@@ -21,7 +21,8 @@ router.get("/", async (req, res) => {
         "image.image_link",
         "site_name",
         "destination.city"
-      );
+      )
+      .orderBy("post.created_at", "desc");
 
     res.status(200).json(profile);
   } catch (error) {

@@ -1,0 +1,55 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.post {
+  border-radius: 5px;
+  margin: 1rem;
+  box-shadow: 0px 2px 5px 0px #0208124d;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+  }
+  &__avatar {
+    width: 2rem;
+    border-radius: 5px;
+  }
+  &__avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__container {
+    background-color: $primary-style-color;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__username {
+    margin: 0;
+    color: $primary-background-color;
+    @include text-style(1rem, 1.13rem);
+  }
+  &__location {
+    margin: 0;
+    color: $primary-background-color;
+    @include text-style(0.75rem, 1.13rem);
+  }
+  &__timestamp {
+    color: $primary-background-color;
+    @include text-style(0.63rem, 1.13rem);
+  }
+  &__img {
+    width: 100%;
+  }
+  &__description {
+    margin: 0;
+    padding: 0.5rem;
+  }
+}

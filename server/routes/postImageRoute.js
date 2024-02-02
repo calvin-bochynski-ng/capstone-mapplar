@@ -17,6 +17,32 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const posts = await knex("user")
+      .join("post", "user_id", "=", "user.id")
+      .join("image", "post_id", "=", "post.id")
+      .join("site", "site_id", "=", "site.id")
+      .join("destination", "destination_id", "=", "destination.id")
+      .where({ "user.id": req.body.id })
+      .select(
+        "user.avatar",
+        "user.username",
+        "post.description",
+        "post.like",
+        "post.created_at",
+        "image.image_link",
+        "site_name",
+        "destination.city"
+      )
+      .orderBy("post.created_at", "desc");
+
+    res.status(200).json(posts);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.post("/image", async (req, res) => {
   try {
     const sites = await knex("site");

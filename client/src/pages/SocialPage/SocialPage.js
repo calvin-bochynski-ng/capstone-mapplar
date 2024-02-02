@@ -1,12 +1,14 @@
 import "./SocialPage.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Upload from "../../component/Upload/Upload";
+import Post from "../../component/Post/Post";
 
 const SocialPage = ({ setIsToken }) => {
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
+  const [isUpdate, setIsUpdate] = useState(false);
 
   useEffect(() => {
     if (!token) {
@@ -17,7 +19,8 @@ const SocialPage = ({ setIsToken }) => {
 
   return (
     <main>
-      <Upload />
+      <Upload setIsUpdate={setIsUpdate} />
+      <Post isUpdate={isUpdate} />
     </main>
   );
 };
