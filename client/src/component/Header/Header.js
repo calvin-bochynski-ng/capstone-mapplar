@@ -4,6 +4,9 @@ import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
 
 const Header = ({ isToken, setIsToken }) => {
+  if (!isToken) {
+    console.log("header token");
+  }
   return (
     <header className="header">
       <div className="header__container">
