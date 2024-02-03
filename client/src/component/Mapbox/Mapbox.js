@@ -7,10 +7,7 @@ import PopupComponent from "../PopupComponent/PopupComponent";
 import axios from "axios";
 import FlyToCity from "../FlyToCity/FlyToCity";
 import FlyToSite from "../FlyToSite/FlyToSite";
-import InputLabel from "@mui/material/InputLabel";
-import NativeSelect from "@mui/material/NativeSelect";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import DropdownCity from "../DropdownCity/DropdownCity";
 
 const Mapbox = ({
   handleClick,
@@ -18,23 +15,12 @@ const Mapbox = ({
   setIsButton,
   selectedCity,
   setSelectedCity,
+  destinationList,
+  setDestinationList,
 }) => {
   const [popupInfo, setPopupInfo] = useState(null);
-  const [destinationList, setDestinationList] = useState(null);
+  // const [destinationList, setDestinationList] = useState(null);
   const token = sessionStorage.getItem("token");
-
-  const [location, setLocation] = useState("London");
-
-  const handleChange = async (event) => {
-    setLocation(event.target.value);
-    setSelectedCity(
-      destinationList.find(
-        (destination) => destination.city === event.target.value
-      )
-    );
-    setSelectedSites("");
-    setIsButton(false);
-  };
 
   useEffect(() => {
     const fetchDestination = async () => {
@@ -65,26 +51,12 @@ const Mapbox = ({
     <>
       <section className="mapbox">
         <div className="mapbox__flyto">
-          <h3 className="mapbox__destination-title">
-            Choose your destination:
-          </h3>
-          <div className="mapbox__destination_select">
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              defaultValue="London"
-              value={location}
-              onChange={handleChange}
-            >
-              {destinationList.map((destination) => {
-                return (
-                  <MenuItem value={destination.city} key={destination.id}>
-                    {destination.city}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </div>
+          <DropdownCity
+            destinationList={destinationList}
+            setSelectedCity={setSelectedCity}
+            setSelectedSites={setSelectedSites}
+            setIsButton={setIsButton}
+          />
         </div>
         <Map
           mapboxAccessToken={process.env.REACT_APP_ACCESS_TOKEN}

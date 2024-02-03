@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import logo from "../../assets/images/plain-logo.svg";
+import logo from "../../assets/images/main-logo.svg";
 const LoginPage = ({ setIsToken }) => {
   const navigate = useNavigate();
   const [formDetail, setFormDetail] = useState({

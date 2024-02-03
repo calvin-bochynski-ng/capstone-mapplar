@@ -5,6 +5,9 @@
   position: absolute;
   bottom: 1rem;
   z-index: 110;
+  @include tablet {
+    display: none;
+  }
   &__title {
     text-align: center;
     background-color: $primary-background-color;

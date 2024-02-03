@@ -4,7 +4,7 @@ import axios from "axios";
 import Input from "../../component/Input/Input";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import logo from "../../assets/images/plain-logo.svg";
+import logo from "../../assets/images/main-logo.svg";
 
 const SignUpPage = () => {
   const navigate = useNavigate();

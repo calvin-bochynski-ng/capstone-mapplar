@@ -5,16 +5,23 @@
   position: absolute;
   background-color: $primary-background-color;
   padding: 1rem;
-
   width: 100%;
   top: 0rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include tablet {
+    position: relative;
+  }
 
   &__title {
     text-align: center;
+  }
+  &__destination-title {
+    width: 50%;
+    margin: 0.5rem 0;
+    @include text-style(1rem, 1.13rem);
   }
   &__site-name {
     display: flex;
@@ -29,18 +36,37 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    @include tablet {
+      position: relative;
+    }
   }
   &__icons {
     position: absolute;
     right: 1rem;
     top: 1rem;
+    @include tablet {
+      display: none;
+    }
   }
   &__container {
-    overflow: scroll;
+    @include tablet {
+      width: 100%;
+      height: 100%;
+    }
   }
   &__day {
+    padding: 1rem 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+
+    @include tablet {
+      padding: 0;
+    }
+  }
+  &__destination-select {
+    margin: 0;
+    margin-bottom: 1rem;
+    width: 50%;
   }
 }

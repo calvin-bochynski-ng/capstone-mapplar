@@ -1,0 +1,18 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__destination-title {
+    width: 50%;
+    margin: 0.5rem 0;
+    @include text-style(1rem, 1.13rem);
+  }
+  &__destination-select {
+    margin: 0;
+    margin-bottom: 1rem;
+    width: 50%;
+  }
+}

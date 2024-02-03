@@ -14,6 +14,7 @@ const Planner = ({
   setDays,
   setSelectedSites,
   setIsButton,
+  selectedCity,
 }) => {
   const handleChange = (event) => {
     setDays(event.target.value);
@@ -24,12 +25,51 @@ const Planner = ({
     setIsButton(false);
   };
   if (!selectedSites) {
-    return <p>loading...</p>;
+    return (
+      <>
+        <section className="planner">
+          <LiaTimesSolid className="planner__icons" onClick={handleSiteClose} />
+          <div className="planner__container">
+            <h1 className="planner__title">Selected Sites</h1>
+            <p className="planner__site-name">
+              {`Time to choose something cool to visit in ${selectedCity.city}!`}
+            </p>
+          </div>
+        </section>
+      </>
+    );
   }
   return (
     <section className="planner">
       <LiaTimesSolid className="planner__icons" onClick={handleSiteClose} />
       <div className="planner__container">
+        <div className="planner__day">
+          <h3 className="planner__destination-title">
+            Choose the number of day/s:
+          </h3>
+          <div className="planner__destination_select">
+            <Select
+              labelId="days"
+              id="days"
+              name="days"
+              value={days}
+              onChange={handleChange}
+              defaultValue="1"
+            >
+              {/* <MenuItem value="">
+                <em>None</em>
+              </MenuItem> */}
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+              <MenuItem value={5}>5</MenuItem>
+              <MenuItem value={6}>6</MenuItem>
+              <MenuItem value={7}>7</MenuItem>
+            </Select>
+          </div>
+        </div>
+
         <h1 className="planner__title">Selected Sites</h1>
         {!selectedSites
           ? ""
@@ -40,31 +80,6 @@ const Planner = ({
                 </div>
               );
             })}
-
-        <div className="planner__day">
-          <FormControl sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="days">Day</InputLabel>
-            <Select
-              labelId="days"
-              id="days"
-              name="days"
-              value={days}
-              onChange={handleChange}
-              label="Day"
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={1}>1</MenuItem>
-              <MenuItem value={2}>2</MenuItem>
-              <MenuItem value={3}>3</MenuItem>
-              <MenuItem value={4}>4</MenuItem>
-              <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={6}>6</MenuItem>
-              <MenuItem value={7}>7</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
       </div>
       <div className="planner__button">
         <Button

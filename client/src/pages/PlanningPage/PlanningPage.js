@@ -5,6 +5,7 @@ import Mapbox from "../../component/Mapbox/Mapbox";
 import Planner from "../../component/Planner/Planner";
 import ButtonPopup from "../../component/ButtonPopup/ButtonPopup";
 import Itinerary from "../../component/Itinerary/Itinerary";
+import DropdownCity from "../../component/DropdownCity/DropdownCity";
 
 const PlanningPage = ({ setIsToken }) => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const PlanningPage = ({ setIsToken }) => {
   const [isButton, setIsButton] = useState(false);
   const [isItineary, setIsItinerary] = useState(false);
   const [days, setDays] = useState("");
+  const [destinationList, setDestinationList] = useState(null);
 
   const handleClick = (site) => {
     const selectedList = [...selectedSites, site].filter(
@@ -50,6 +52,8 @@ const PlanningPage = ({ setIsToken }) => {
         setIsButton={setIsButton}
         setSelectedCity={setSelectedCity}
         selectedCity={selectedCity}
+        destinationList={destinationList}
+        setDestinationList={setDestinationList}
       />
       {!isButton ? (
         ""
@@ -79,6 +83,45 @@ const PlanningPage = ({ setIsToken }) => {
           selectedCity={selectedCity}
         />
       )}
+
+      <section className="planning__tablet">
+        {!isItineary ? (
+          <>
+            <div className="planning__tablet-dropdown">
+              {!destinationList ? (
+                ""
+              ) : (
+                <DropdownCity
+                  destinationList={destinationList}
+                  setSelectedCity={setSelectedCity}
+                  setSelectedSites={setSelectedSites}
+                  setIsButton={setIsButton}
+                />
+              )}
+            </div>
+            {!selectedCity ? (
+              ""
+            ) : (
+              <Planner
+                handleSiteClose={handleSiteClose}
+                selectedSites={selectedSites}
+                setIsItinerary={setIsItinerary}
+                setSelectedSites={setSelectedSites}
+                setDays={setDays}
+                days={days}
+                setIsButton={setIsButton}
+                selectedCity={selectedCity}
+              />
+            )}
+          </>
+        ) : (
+          <Itinerary
+            selectedSites={selectedSites}
+            days={days}
+            selectedCity={selectedCity}
+          />
+        )}
+      </section>
     </main>
   );
 };
