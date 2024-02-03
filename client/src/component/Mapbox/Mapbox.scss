@@ -10,25 +10,24 @@
 
   &__flyto {
     padding: 1rem;
-    // margin: 1rem;
     background-color: $primary-background-color;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   &__destination {
     display: flex;
     justify-content: space-between;
   }
   &__destination-title {
+    width: 50%;
+    margin: 0.5rem 0;
+  }
+  &__destination-select {
     margin: 0;
     margin-bottom: 1rem;
-  }
-  &__radio-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  &__radio {
-    @include text-style(0.75rem, 0.88rem);
+    width: 50%;
   }
 }
 

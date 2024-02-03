@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.input {
+  width: 70%;
+  z-index: 0;
+  @include tablet {
+    width: 100%;
+  }
+}

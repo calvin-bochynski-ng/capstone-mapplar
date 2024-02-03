@@ -23,11 +23,11 @@ function App() {
   const token = sessionStorage.getItem("token");
   // const navigate = useNavigate();
 
-  const [isToken, setIsToken] = useState(true);
+  const [isToken, setIsToken] = useState(false);
 
   useEffect(() => {
-    if (!token) {
-      setIsToken(false);
+    if (token) {
+      setIsToken(true);
     }
   }, [token]);
 

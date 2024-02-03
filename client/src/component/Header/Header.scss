@@ -3,6 +3,9 @@
 
 .header {
   background-color: $primary-style-color;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
 
   &__container {
     display: flex;

@@ -18,9 +18,18 @@
   &__input-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100vw;
     @include tablet {
       flex-direction: row;
       gap: 5rem;
+      padding: 0 2rem;
+    }
+    @include desktop {
+      width: 1020px;
+      margin: 0 auto;
     }
   }
   &__button {

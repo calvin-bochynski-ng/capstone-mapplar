@@ -7,6 +7,10 @@ import PopupComponent from "../PopupComponent/PopupComponent";
 import axios from "axios";
 import FlyToCity from "../FlyToCity/FlyToCity";
 import FlyToSite from "../FlyToSite/FlyToSite";
+import InputLabel from "@mui/material/InputLabel";
+import NativeSelect from "@mui/material/NativeSelect";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 const Mapbox = ({
   handleClick,
@@ -18,6 +22,19 @@ const Mapbox = ({
   const [popupInfo, setPopupInfo] = useState(null);
   const [destinationList, setDestinationList] = useState(null);
   const token = sessionStorage.getItem("token");
+
+  const [location, setLocation] = useState("London");
+
+  const handleChange = async (event) => {
+    setLocation(event.target.value);
+    setSelectedCity(
+      destinationList.find(
+        (destination) => destination.city === event.target.value
+      )
+    );
+    setSelectedSites("");
+    setIsButton(false);
+  };
 
   useEffect(() => {
     const fetchDestination = async () => {
@@ -51,31 +68,23 @@ const Mapbox = ({
           <h3 className="mapbox__destination-title">
             Choose your destination:
           </h3>
-          <section className="mapbox__destination">
-            {destinationList.map((destination) => {
-              return (
-                <article
-                  key={destination.id}
-                  className="mapbox__radio-container"
-                >
-                  <input
-                    type="radio"
-                    name="city"
-                    id={destination.id}
-                    defaultChecked={destination.city === "London"}
-                    onClick={() => {
-                      setSelectedCity(destination);
-                      setSelectedSites("");
-                      setIsButton(false);
-                    }}
-                  />
-                  <label htmlFor={destination.id} className="mapbox__radio">
+          <div className="mapbox__destination_select">
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              defaultValue="London"
+              value={location}
+              onChange={handleChange}
+            >
+              {destinationList.map((destination) => {
+                return (
+                  <MenuItem value={destination.city} key={destination.id}>
                     {destination.city}
-                  </label>
-                </article>
-              );
-            })}
-          </section>
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </div>
         </div>
         <Map
           mapboxAccessToken={process.env.REACT_APP_ACCESS_TOKEN}

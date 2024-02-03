@@ -4,15 +4,41 @@
 .social {
   @include tablet {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    height: 92%;
+  }
+  @include desktop {
+    width: 1020px;
+    margin: 0 auto;
+  }
+  &__profile-upload {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 35%;
+      border-right: 2px solid #4c82f61a;
+    }
+  }
+  &__profile {
+    display: none;
+    @include tablet {
+      display: flex;
+      width: 50%;
+    }
   }
   &__post {
     @include tablet {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      width: 65%;
+      height: 100%;
+      overflow: scroll;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include desktop {
+      border-right: 2px solid #4c82f61a;
     }
   }
 }
