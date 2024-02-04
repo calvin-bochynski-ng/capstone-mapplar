@@ -29,10 +29,9 @@ router.post("/", async (req, res) => {
     /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{5}$/gi
   );
 
-  if (!validateEmail)
-    return res.status(400).send("contact_email is not a valid email");
+  if (!validateEmail) return res.status(400).send("Email is not a valid email");
   if (!validatePhoneNumber)
-    return res.status(400).send("contact_phone is not a valid phone number");
+    return res.status(400).send("Phone Number is not a valid phone number");
 
   const hashedPassword = bcrypt.hashSync(password, 6);
 
