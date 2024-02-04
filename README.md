@@ -1,5 +1,19 @@
 # Project Title - Mapplar
 
+## Installation
+
+To install the whole project, please `clone` / `fork` the project into your
+directories, once you have downloaded the project then make sure you do
+`npm install` to install all dependancy on both `client` and
+`server`. This will make sure it will be working properly.
+
+As for the `.env`, I have placed a `.env.sample` in the directories for both `client`
+and `server` side. Use that as a guide to add that to your local machine for
+testing purposes.
+
+If you want to see it working fully in action, I will deploy this therefore
+there will be a clickable link eventually.
+
 ## Overview
 
 Mapplar is able to help travellers to find and plan their intinerary for the
@@ -36,28 +50,37 @@ any stress.
 - React
 - MySQL
 - Express
+- Firebase
 - Client libraries:
   - react
   - react-router
   - axios
   - mapbox
   - react-icons
-  - react-infinite-scroll
-  - NextUI
+  - exifr
+  - sass
+  - uuid
+  - image-resize-compress
+  - Material UI (MUI)
 - Server libraries:
   - knex
   - express
+  - axios
+  - cors
+  - dotenv
+  - jsonwebtoken
   - bcrypt for password hashing (for auth)
 
 ### APIs
 
 MapBox - Map interaction with pictures
+
 OpenAi - Generating Itinerary
 
-<!-- Firebase - Upload image and return image url (maybe) -->
+Firebase - Upload images and saved in databased based on Geolocation data
 
-A npm package that will resize images to smaller files for server api storage
-and resizing picture for display.
+image-resize-compress - resize image filesize by reducing quality
+
 EXIF - npm package to return EXIF Metadata
 
 ### Sitemap
@@ -77,9 +100,9 @@ Logo -
 
 Title with logo - ![](./mock-up-and-ideas/logo-text-main.png)
 
-Fonts Heading - Garamond Premier Pro
+### Fonts Heading - Garamond Premier Pro
 
-Fonts Body - Noto Sans
+### Fonts Body - Noto Sans
 
 @import url('https://fonts.googleapis.com/css?family=Garamond%20Premier%20Pro:700|Noto%20Sans:400');
 
@@ -93,9 +116,9 @@ font-family: 'Garamond Premier Pro';
 font-weight: 700;
 }
 
-Color Palette -
+### Color Palette
 
-light: (
+#### light: (
 
 - text: #020812,
 - background: #f1f5fe,
@@ -119,27 +142,38 @@ visually using diagrams, or write it out.
 
 Most of them are one to many relationships
 
+#### New feature currently WIP have friends list and clicking onto icon in social page will lead you to their profile.
+
 ### Endpoints
 
-- /user/ (.post)
-- /user/:id (.get, .put)
-- /user/:id/itinerary/ (.get)
-- /user/:id/itinerary/:id (.get)
-- /destination (.get)
-- /sites/:site_id (.get)
-- /sites/images (.get)
+- /signup
+- /login
+- /destination
+- /destination/:id
+- /site/:id
+- /itinerary
+- /post
+- /post/image
+- /profile
+- /profile/destination/:city
+- /profile/:userid
+- /profile/:userid/destination/:city
+- /search/:username
+- /follow
+- /follow/:userid
 
 ### Auth
 
-Could require a login feature where for a non-user will only show Home/Sign-In
-page. After the user has logged in there will be a social media page,
-map-planning page and a sign-out page.
-
-Using JWT auth to authenicate users, at the beginning a fake user id or fake
-login page would be implemented, but it would be nice to have a fully
-functioning auth platform.
+Fully functioning JWT token for Login, all user-based activities/ events will
+require authorisation in the back-end to get the end points. The JWT will be
+saved in the session storage, upon signing out, the JWT will be removed
+therefore bringing user back to non-user status.
 
 ## Roadmap
+
+### Jira board
+
+https://mapplar.atlassian.net/jira/software/projects/MAPPLAR/boards/1
 
 - create database
 
@@ -167,13 +201,13 @@ functioning auth platform.
 - abilities to change from light mode to dark mode
   dark:
 
-- - text: #edf3fd
-- - background: #01050e
-- - primary: #093fb3
-- - secondary: #3e5b25
-- - accent: #ff9b0f
+  - text: #edf3fd
+  - background: #01050e
+  - primary: #093fb3
+  - secondary: #3e5b25
+  - accent: #ff9b0f
 
-  ![](./mock-up-and-ideas/Dark%20Mode.png)
+![](./mock-up-and-ideas/Dark%20Mode.png)
 
 - fully functing auth page for user including google/ facebook and apple
   authenitcation

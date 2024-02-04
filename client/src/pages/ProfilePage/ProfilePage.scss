@@ -21,7 +21,7 @@
     width: 100%;
     padding: 1rem 0;
     @include tablet {
-      width: 30%;
+      width: 40%;
       height: 100%;
     }
   }
@@ -35,7 +35,7 @@
   &__itinerary {
     padding: 0 1rem;
     @include tablet {
-      width: 70%;
+      width: 60%;
       height: 100%;
       border-left: 1px solid #4c82f61a;
     }
