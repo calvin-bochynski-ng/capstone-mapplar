@@ -4,7 +4,6 @@ const router = express.Router();
 const knex = require("knex")(require("../knexfile"));
 
 router.post("/", async (req, res) => {
-  // console.log(req.body.description);
   try {
     const post = await knex("post").insert({
       description: req.body.description,
@@ -16,32 +15,6 @@ router.post("/", async (req, res) => {
     console.log(error);
   }
 });
-
-// router.get("/", async (req, res) => {
-//   try {
-//     const posts = await knex("user")
-//       .join("post", "user_id", "=", "user.id")
-//       .join("image", "post_id", "=", "post.id")
-//       .join("site", "site_id", "=", "site.id")
-//       .join("destination", "destination_id", "=", "destination.id")
-//       .where({ "user.id": req.body.main_usr_id })
-//       .select(
-//         "user.avatar",
-//         "user.username",
-//         "post.description",
-//         "post.like",
-//         "post.created_at",
-//         "image.image_link",
-//         "site_name",
-//         "destination.city"
-//       )
-//       .orderBy("post.created_at", "desc");
-
-//     res.status(200).json(posts);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
 
 router.post("/image", async (req, res) => {
   try {

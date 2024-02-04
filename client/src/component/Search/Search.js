@@ -30,11 +30,10 @@ const Search = ({ setIsSearch }) => {
               },
             }
           );
-          console.log(response.data);
           setFoundProfile(response.data);
           setIsSearch(false);
         } catch (error) {
-          // console.log({ message: error });
+          console.log(error);
         }
       };
       fetchProfile();

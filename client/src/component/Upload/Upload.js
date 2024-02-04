@@ -74,7 +74,6 @@ const Upload = ({ setIsUpdate }) => {
       try {
         const imageRef = ref(storage, `images/${uuidv4()}`);
         const snapshot = await uploadBytes(imageRef, newConvertedImage);
-        console.log("image uploaded");
         const downloadURL = await getDownloadURL(snapshot.ref);
 
         const { data: postId } = await axios.post(
@@ -111,8 +110,6 @@ const Upload = ({ setIsUpdate }) => {
       }
     }
   };
-
-  console.log(errorArray);
 
   return (
     <form className="upload">

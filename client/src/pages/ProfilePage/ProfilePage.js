@@ -20,13 +20,15 @@ const ProfilePage = ({ setIsToken }) => {
   }, []);
 
   return (
-    <main className="profile">
-      <div className="profile__search">
-        <Search setIsSearch={setIsSearch} />
-      </div>
-      <Profile userid={userid} isSearch={isSearch} />
+    <main className="profile-page">
+      <section className="profile-page__container">
+        <div className="profile-page__search">
+          <Search setIsSearch={setIsSearch} />
+        </div>
+        <Profile userid={userid} isSearch={isSearch} />
+      </section>
 
-      <section className="profile__itinerary">
+      <section className="profile-page__itinerary">
         <h1>Recent Itinerary</h1>
         <AccordionCard
           City="London"

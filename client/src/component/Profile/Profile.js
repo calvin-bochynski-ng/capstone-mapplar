@@ -22,7 +22,6 @@ const Profile = ({ userid, isSearch }) => {
       }
     );
     setFriend(true);
-    console.log("friends");
   };
 
   const handleClickUnFollow = async () => {
@@ -35,7 +34,6 @@ const Profile = ({ userid, isSearch }) => {
       }
     );
     setFriend(false);
-    console.log("No Longer friends");
   };
 
   useEffect(() => {

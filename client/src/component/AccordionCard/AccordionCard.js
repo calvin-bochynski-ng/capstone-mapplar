@@ -23,7 +23,6 @@ const AccordionCard = ({ City, Destination, userid, isSearch }) => {
           },
         }
       );
-      // console.log(JSON.parse(response.data.itinerary_description));
       setRecentItinerary(JSON.parse(response.data.itinerary_description));
     } catch (error) {
       setRecentItinerary(null);

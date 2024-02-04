@@ -127,13 +127,11 @@ const SignUpPage = () => {
         );
 
       if (!validatePhoneNumber) {
-        console.log("not a valid phone number");
         setErrorPhone(true);
         errorChecking.push("phone_number");
       }
 
       if (!validateEmail) {
-        console.log("not a valid email");
         setErrorEmail(true);
         errorChecking.push("email");
       }

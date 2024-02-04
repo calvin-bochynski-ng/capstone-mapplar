@@ -5,7 +5,6 @@ const knex = require("knex")(require("../knexfile"));
 
 router.get("/:username", async (req, res) => {
   const { username } = req.params;
-  // console.log(username);
 
   try {
     const profile = await knex("user")
@@ -15,7 +14,6 @@ router.get("/:username", async (req, res) => {
     res.status(200).json(profile);
   } catch (error) {
     res.status(400).send("Not found");
-    console.log("User does not exist");
   }
 });
 

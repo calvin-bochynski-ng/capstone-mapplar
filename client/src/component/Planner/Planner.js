@@ -52,13 +52,9 @@ const Planner = ({
               labelId="days"
               id="days"
               name="days"
-              value={days}
+              value={!days ? 1 : days}
               onChange={handleChange}
-              defaultValue="1"
             >
-              {/* <MenuItem value="">
-                <em>None</em>
-              </MenuItem> */}
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={2}>2</MenuItem>
               <MenuItem value={3}>3</MenuItem>
