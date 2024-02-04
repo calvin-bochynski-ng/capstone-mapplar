@@ -42,7 +42,7 @@ const ProfilePage = ({ setIsToken }) => {
         />
         <AccordionCard
           City="Hong Kong"
-          Destination="China"
+          Destination="Hong Kong"
           userid={userid}
           isSearch={isSearch}
         />

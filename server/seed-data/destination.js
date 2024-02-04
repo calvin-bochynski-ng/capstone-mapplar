@@ -20,7 +20,7 @@ module.exports = [
   {
     id: 3,
     city: "Hong Kong",
-    country: "China",
+    country: "Hong Kong",
     longitude: 114.1722,
     latitude: 22.2988,
     description:

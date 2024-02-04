@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.hero {
+  &__img {
+    width: 100%;
+    &--phone {
+      @include tablet {
+        display: none;
+      }
+    }
+    &--tablet {
+      display: none;
+      @include tablet {
+        display: flex;
+      }
+      @include desktop {
+        display: none;
+      }
+    }
+    &--desktop {
+      display: none;
+      @include desktop {
+        display: flex;
+      }
+    }
+  }
+}
