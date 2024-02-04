@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 const API_URL = process.env.API_URL;
 
 const format = {
-  intinerary: {
+  itinerary: {
     description: "Here's a intinerary for (destination), for (number) of days",
     days: [
       {
@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
     messages: [
       {
         role: "system",
-        content: `You are a helpful assistant finding the best intinerary for users after they selected the sites they want to visit.`,
+        content: `You are a helpful assistant finding the best intinerary for users after they selected the sites they want to visit. Reply back in JSON Format ONLY`,
       },
       {
         role: "user",
@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
           req.body.city
         }, these are the places I want to visit: ${
           req.body.site
-        }, give me a rough plan between borough. I want it as a JSON format, see example ${JSON.stringify(
+        }, give me a rough plan between borough. I want it as a JSON format only, follow example ${JSON.stringify(
           format
         )}}}`,
       },

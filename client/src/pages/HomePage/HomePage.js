@@ -2,7 +2,14 @@ import "./HomePage.scss";
 import heroPhone from "../../assets/images/hero-phone.svg";
 import heroTablet from "../../assets/images/hero-tablet.svg";
 import heroDesktop from "../../assets/images/hero-desktop.svg";
+import { Button } from "@mui/material";
+import FollowTheSignsIcon from "@mui/icons-material/FollowTheSigns";
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/signup");
+  };
   return (
     <main className="hero">
       <img src={heroPhone} alt="hero" className="hero__img hero__img--phone" />
@@ -16,13 +23,23 @@ const HomePage = () => {
         alt="hero"
         className="hero__img hero__img--desktop"
       />
-      <h1>This is the Home Page</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
-        totam cumque consequuntur, repudiandae quaerat praesentium obcaecati eum
-        sequi, est necessitatibus commodi non deleniti. Magni, ducimus impedit.
-        At porro quo inventore.
-      </p>
+
+      <div className="hero__container">
+        <h1 className="hero__title">Mapplar</h1>
+        <p className="hero__slogan">
+          Where every unforgettable journey begins and memories are made, craft
+          your perfect itinerary, <strong>every time</strong>!
+        </p>
+        <div className="hero__button">
+          <Button
+            variant="contained"
+            endIcon={<FollowTheSignsIcon />}
+            onClick={handleClick}
+          >
+            Sign up!
+          </Button>
+        </div>
+      </div>
     </main>
   );
 };

@@ -11,7 +11,6 @@ const AccordionCard = ({ City, Destination, userid, isSearch }) => {
   const token = sessionStorage.getItem("token");
 
   const fetchItinerary = async () => {
-    // setRecentItinerary(null);
     try {
       const response = await axios.get(
         !userid

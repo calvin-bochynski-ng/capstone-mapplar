@@ -9,12 +9,12 @@ const postData = require("../seed-data/post");
 const imageData = require("../seed-data/image");
 
 exports.seed = async function (knex) {
+  await knex("image").del();
   await knex("site").del();
   await knex("destination").del();
   await knex("user").del();
   await knex("post").del();
   await knex("itinerary").del();
-  await knex("image").del();
   await knex("follow").del();
   await knex("destination").insert(destinationData);
   await knex("site").insert(siteData);

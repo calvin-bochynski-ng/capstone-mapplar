@@ -25,6 +25,8 @@
     display: none;
     @include tablet {
       display: flex;
+      justify-content: center;
+      align-items: center;
       width: 50%;
     }
   }
