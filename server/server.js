@@ -26,7 +26,7 @@ app.use("/", uploadRoute);
 app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
 app.use("/destination", authorize, destinationRoute);
-app.use("/site", authorize, siteRoute);
+app.use("/siteimage", authorize, siteRoute);
 app.use("/itinerary", authorize, itineraryRoute);
 app.use("/post", authorize, postImageRoute);
 app.use("/profile", authorize, profileRoute);
