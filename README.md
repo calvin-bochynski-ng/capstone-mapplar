@@ -32,7 +32,10 @@ On Logged In - there will be 3 navigation links: `Social`, `Planner` and
 `Social` Page - it will be currently be empty because you have not uploaded any
 pictures, you can then click the select picture to upload a pciture with a
 description. Make sure the images that you upload have geolocation at the
-specific sites from planner.
+specific sites from planner. (Please have a look at the folder in
+root/image-upload-example, it contains some example images for you to upload and
+try and see how it works, once you have uploaded the images through the web app,
+you will be able to see it in the map by clicking the sites in the popup. )
 
 `Planner` page - The main part of the capstone, using the map to navigate to a
 choice of 3 cities: London, New York and Hong Kong. From there you can select
