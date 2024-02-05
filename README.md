@@ -5,11 +5,54 @@
 To install the whole project, please `clone` / `fork` the project into your
 directories, once you have downloaded the project then make sure you do
 `npm install` to install all dependancy on both `client` and
-`server`. This will make sure it will be working properly.
+`server`. Please make sure in the server side, you want to do `npm run
+migrate` and then do `npm run seed`, this will migrate the latest
+placeholders into the database to use, this is important especially for the site
+pictures.
 
 As for the `.env`, I have placed a `.env.sample` in the directories for both `client`
 and `server` side. Use that as a guide to add that to your local machine for
 testing purposes.
+
+Aftwards do `npm start` on both `server` and `client` to start the
+experience:
+
+On load: there will be 3 navigation links: `Home Page`, `Sign Up` and `Login`.
+
+`Home` Page - Hero section with a button that leads you to the sign up page.
+
+`Sign Up` Page - Fill in your User name and other details. (Username is used for
+Login).
+
+`Login` Page - Requires Username and Password to login
+
+On Logged In - there will be 3 navigation links: `Social`, `Planner` and
+`Profile`.
+
+`Social` Page - it will be currently be empty because you have not uploaded any
+pictures, you can then click the select picture to upload a pciture with a
+description. Make sure the images that you upload have geolocation at the
+specific sites from planner.
+
+`Planner` page - The main part of the capstone, using the map to navigate to a
+choice of 3 cities: London, New York and Hong Kong. From there you can select
+any sites you want to visit and select them. After selecting all your chosen
+sites, either click the selected sites (in mobile) or it will show on the right
+side (tablet/ desktop), you can then select the amount of days for your
+itinerary (1-7 days). Upon confirming the sites and amount of days, you can
+click generate itinerary. The loading animations will show and preparing your
+perfect itinerary.
+
+`Profile` page - An addition to the capstone is a way for you to search for
+friends to follow, on the top there will be a search bar, from your seed data,
+there will be random_user_1 - random_user_20. These are place holders with
+different profiles. The main feature of the page is that you can see your recent
+itinerary, so head back to your profile and click onto the sites you generated
+and it will display in full detail the latest itinerary.
+
+`Sign Out` - Clicking this will take you back out and taking the JWT token away so
+you won't be able to access the rest of the sites except the Home, Sign-up and
+Login.
 
 If you want to see it working fully in action, I will deploy this therefore
 there will be a clickable link eventually.
