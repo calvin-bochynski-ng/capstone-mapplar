@@ -17,7 +17,7 @@ const PopupComponent = ({
     if (popupInfo) {
       const fetchImageList = async () => {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/site/${popupInfo.id}`,
+          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/siteimage/${popupInfo.id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
