@@ -16,7 +16,7 @@ const PlanningPage = ({ setIsToken }) => {
   const [isPlannerClick, setIsPlannerClick] = useState(false);
   const [isButton, setIsButton] = useState(false);
   const [isItineary, setIsItinerary] = useState(false);
-  const [days, setDays] = useState("");
+  const [days, setDays] = useState(1);
   const [destinationList, setDestinationList] = useState(null);
 
   const handleClick = (site) => {
