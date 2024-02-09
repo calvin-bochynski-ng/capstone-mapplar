@@ -67,7 +67,7 @@ const SignUpPage = () => {
       );
     } else {
       const validatePhoneNumber = formDetail.phone_number.match(
-        /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{5}$/gi
+        /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/gi
       );
       if (validatePhoneNumber) {
         setErrorPhone(false);
@@ -117,7 +117,7 @@ const SignUpPage = () => {
 
     if (errorChecking.length === 0) {
       const validatePhoneNumber = submittedForm.phone_number.match(
-        /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{5}$/gi
+        /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/gi
       );
 
       const validateEmail = submittedForm.email
@@ -228,7 +228,7 @@ const SignUpPage = () => {
                 ? errorArray.includes("phone_number")
                   ? "Please fill in your phone number!"
                   : ""
-                : "Not a valid phone number!"
+                : "Please use Country code also (+)"
             }
           />
           <Input

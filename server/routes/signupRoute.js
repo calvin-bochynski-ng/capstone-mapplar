@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     );
 
   const validatePhoneNumber = phone_number.match(
-    /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{5}$/gi
+    /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/gi
   );
 
   if (!validateEmail) return res.status(400).send("Email is not a valid email");
